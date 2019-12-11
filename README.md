@@ -35,4 +35,4 @@ Quote Generator:
 - [ ] Aim for a large number of small commits - commit frequently!
 - [ ] Add meaningful messages to your commits. When you look back at your commits with `git log`, the messages should describe each change.
 - [ ] Don't include changes in a commit that aren't related to the commit message.
-testing
+
