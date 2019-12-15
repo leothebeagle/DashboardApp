@@ -1,5 +1,6 @@
 class QuotesController < ApplicationController
     def random 
-        raise params.inspect
+        @random_quote = Quote.generate_random
+        render json: @random_quote
     end
 end
