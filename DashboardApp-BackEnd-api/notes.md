@@ -6,3 +6,17 @@ this will route to the quotes controller and the random action.
 the random action will pull up a random quote, then send it as JSON response
 the front end will receive the front end response and then display the quote. (this will be visited in more detail)
 
+Steps:
+
+[x] Quote model 
+[x] Quote controller with an action called random
+[x] A route for random that directs to the random action in the quotes controller
+[] The random action should make a call to the model
+[] Action should receive a response back from the model and that should be rendered as a json response. 
+[] Quote model has a method that'll actually pull out the random quote
+
+So effectively, just visiting the url quotes/random in your browser should result in a json response with all your quotes formatted nicely. 
+
+
+
+
