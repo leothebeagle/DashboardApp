@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   get 'quotes/random', to: 'quotes#random'
   resources :events, only: [:create, :destroy]
-  resources :resources, only: [:create]
+  resources :resources, only: [:create, :destroy]
 
 
 
