@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2019_12_17_042736) do
     t.string "url"
     t.string "resource_name"
     t.string "resource_description"
+    t.integer "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
