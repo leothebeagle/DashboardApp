@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_17_041636) do
+ActiveRecord::Schema.define(version: 2019_12_17_042736) do
 
   create_table "events", force: :cascade do |t|
     t.string "event_title"
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 2019_12_17_041636) do
   create_table "quotes", force: :cascade do |t|
     t.string "author"
     t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "resources", force: :cascade do |t|
+    t.string "url"
+    t.string "resource_name"
+    t.string "resource_description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
