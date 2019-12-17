@@ -1,5 +1,9 @@
-//  document.addEventListener('DOMContentLoaded', (event) => {
-   
+
+const quoteButton = document.querySelector("#rndm-quote-btn");
+const eventButton = document.querySelector("#create-event-btn");
+const randomQuoteCardContent = document.querySelector(".random-quote-card .quote-card-content")
+const eventAndResourcesForm = document.querySelector("#event-resources-form") 
+
 class Quote {
     constructor(author, content) {
         this.author = author;
@@ -7,33 +11,26 @@ class Quote {
     }
 }
 
-const quoteButton = document.querySelector("#rndm-quote-btn");
-const eventButton = document.querySelector("#create-event-btn");
-const randomQuoteCardContent = document.querySelector(".random-quote-card .quote-card-content")
-const eventAndResourcesForm = document.querySelector("#event-resources-form")
-
-
 function retrieveRandomQuote() {
     fetch("http://localhost:3000/quotes/random")
         .then((response) => response.json())
         .then(function(json) {
             let quote = new Quote(json[0].author, json[0].content);
             randomQuoteCardContent.innerHTML =  `"${quote.content} "` + " - " + quote.author
+            // what you could do here to refactor is actually keep this functions job to strictly retrieving the data and setting it
+            // to a variable
+            // you can then call another function whose job it is to inject HTML into the specified area.
         })
 }
-
-
 
 quoteButton.addEventListener("click", retrieveRandomQuote)
 
 eventButton.addEventListener("click", function(event) {
     event.preventDefault();
-    
 })
 
 
+
+
+//  document.addEventListener('DOMContentLoaded', (event) => {
 // });
-
-
-// Could the problem be in the way the form and the button are set up? because its a submit button? or is it got something to
-// with the form's default behavior that we should override?
