@@ -10,6 +10,7 @@ class Quote {
 const quoteButton = document.querySelector("#rndm-quote-btn");
 const eventButton = document.querySelector("#create-event-btn");
 const randomQuoteCardContent = document.querySelector(".random-quote-card .quote-card-content")
+const eventAndResourcesForm = document.querySelector("#event-resources-form")
 
 
 function retrieveRandomQuote() {
@@ -21,11 +22,13 @@ function retrieveRandomQuote() {
         })
 }
 
+
+
 quoteButton.addEventListener("click", retrieveRandomQuote)
 
 eventButton.addEventListener("click", function(event) {
     event.preventDefault();
-    console.log("i fired because the button was clicked!")
+    
 })
 
 
