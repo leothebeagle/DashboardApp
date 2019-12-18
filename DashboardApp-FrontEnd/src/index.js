@@ -27,6 +27,20 @@ quoteButton.addEventListener("click", retrieveRandomQuote)
 
 eventButton.addEventListener("click", function(event) {
     event.preventDefault();
+    
+    configurationObject = {
+        method: "POST",
+        headers: {
+            "Content-Type":"application/json",
+            "Accept":"application/json"
+        },
+        body:JSON.stringify({
+            "event-title":eventAndResourcesForm["event-title"].value,
+            "suggested-time":eventAndResourcesForm["suggested-time"].value   
+        })
+    };
+
+    fetch("http://localhost:3000/events", configurationObject)
 })
 
 
