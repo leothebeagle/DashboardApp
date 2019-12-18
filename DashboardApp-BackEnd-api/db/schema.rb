@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_17_042736) do
+ActiveRecord::Schema.define(version: 2019_12_18_234050) do
 
   create_table "events", force: :cascade do |t|
     t.string "event_title"
     t.string "suggested_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "workspace_id"
   end
 
   create_table "quotes", force: :cascade do |t|
@@ -31,6 +32,12 @@ ActiveRecord::Schema.define(version: 2019_12_17_042736) do
     t.string "resource_name"
     t.string "resource_description"
     t.integer "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "workspaces", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
