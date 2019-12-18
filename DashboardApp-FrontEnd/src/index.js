@@ -44,6 +44,8 @@ eventButton.addEventListener("click", function(event) {
     };
 
     fetch("http://localhost:3000/events", configurationObject)
+        .then(response => response.json())
+        .then(json => console.log(json))
 })
 
 
