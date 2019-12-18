@@ -36,7 +36,10 @@ eventButton.addEventListener("click", function(event) {
         },
         body:JSON.stringify({
             "event-title":eventAndResourcesForm["event-title"].value,
-            "suggested-time":eventAndResourcesForm["suggested-time"].value   
+            "suggested-time":eventAndResourcesForm["suggested-time"].value,
+            "url":eventAndResourcesForm["url"].value,
+            "resource-name":eventAndResourcesForm["resource-name"].value,
+            "resource-description":eventAndResourcesForm["resource-description"].value
         })
     };
 
