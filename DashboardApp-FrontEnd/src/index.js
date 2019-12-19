@@ -25,6 +25,13 @@ function retrieveRandomQuote() {
         })
 }
 
+
+// --------------------------------------- EVENT LISTENERS -----------------------------------------------------------------
+
+workspaceButton.addEventListener("click", function(event){
+    console.log("hi")
+})
+
 quoteButton.addEventListener("click", retrieveRandomQuote)
 
 eventButton.addEventListener("click", function(event) {
