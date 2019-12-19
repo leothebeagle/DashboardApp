@@ -1,17 +1,19 @@
-
+// --------------------- Variables ----------------
 const workspaceButton = document.querySelector("#create-workspace-btn")
 const workspaceForm = document.querySelector("#new-workspace-form")
 const quoteButton = document.querySelector("#rndm-quote-btn");
 const eventButton = document.querySelector("#create-event-btn");
 const randomQuoteCardContent = document.querySelector(".random-quote-card .quote-card-content")
 const eventAndResourcesForm = document.querySelector("#event-resources-form") 
-
+// -------------------------- Classes ------------------------
 class Quote {
     constructor(author, content) {
         this.author = author;
         this.content = content;
     }
 }
+
+// ------------------------- Functions -----------------------------
 
 function retrieveRandomQuote() {
     fetch("http://localhost:3000/quotes/random")
@@ -26,7 +28,7 @@ function retrieveRandomQuote() {
 }
 
 
-// --------------------------------------- EVENT LISTENERS -----------------------------------------------------------------
+// --------------------------- EVENT LISTENERS -----------------------------------------------------------------
 
 workspaceButton.addEventListener("click", function(event){
     console.log("hi")
