@@ -27,10 +27,10 @@ function retrieveRandomQuote() {
         })
 }
 
-function createWorkspace(formData) {
+function createWorkspace(event) {
+    event.preventDefault();
     // I want this to be an assembler function that'll invoke the appropriate functions.
 }
-
 
 // --------------------------- EVENT LISTENERS -----------------------------------------------------------------
 
