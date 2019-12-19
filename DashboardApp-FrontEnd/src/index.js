@@ -29,16 +29,15 @@ function retrieveRandomQuote() {
 
 function createWorkspace(event) {
     event.preventDefault();
+    console.log("im inside createWorkspace")
     // I want this to be an assembler function that'll invoke the appropriate functions.
 }
 
 // --------------------------- EVENT LISTENERS -----------------------------------------------------------------
 
-workspaceButton.addEventListener("click", function(event){
-    console.log("hi")
-})
+workspaceButton.addEventListener("click", createWorkspace);         
 
-quoteButton.addEventListener("click", retrieveRandomQuote)
+quoteButton.addEventListener("click", retrieveRandomQuote) 
 
 eventButton.addEventListener("click", function(event) {
     event.preventDefault();
