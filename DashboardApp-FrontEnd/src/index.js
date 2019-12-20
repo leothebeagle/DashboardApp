@@ -38,7 +38,7 @@ function postWorkspace(formData) {
                   Accept: "application/json"
                 },
                 body: JSON.stringify({
-                  "name": formData.workspace-name.value
+                  "name": formData.name.value
                 })
               })
 }
