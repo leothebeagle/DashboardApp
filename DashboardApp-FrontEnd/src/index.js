@@ -32,15 +32,17 @@ function retrieveRandomQuote() {
 function postWorkspace(formData) {
         // console.log(formData)
     fetch("http://localhost:3000/workspaces", {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                  Accept: "application/json"
-                },
-                body: JSON.stringify({
-                  "name": formData.name.value
-                })
-              })
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            Accept: "application/json"
+        },
+        body: JSON.stringify({
+            "name": formData.name.value
+        })
+        })
+    .then(response => response.json())
+    .then(json => console.log(json))
 }
 
 
