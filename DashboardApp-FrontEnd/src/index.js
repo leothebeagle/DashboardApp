@@ -14,6 +14,12 @@ class Quote {
     }
 }
 
+class Workspace {
+    constructor(name) {
+        this.name = name;
+    }
+}
+
 // ------------------------- Functions -----------------------------
 
 function retrieveRandomQuote() {
