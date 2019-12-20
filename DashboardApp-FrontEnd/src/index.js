@@ -44,11 +44,15 @@ function postWorkspace(formData) {
             Accept: "application/json"
         },
         body: JSON.stringify({
-            "name": formData.name.value
+            // "workspace": formData.name.value
+            workspace: { name: formData.name.value}
         })
         })
     .then(response => response.json())
-    .then(json => console.log(json))
+    .then(function(json){
+        // let newWorkspace = new Workspace(json);
+        console.log(json);
+    })
 }
 
 

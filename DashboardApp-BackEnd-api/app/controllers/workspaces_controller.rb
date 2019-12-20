@@ -1,6 +1,5 @@
 class WorkspacesController < ApplicationController
     def create 
-    
         # what data do we need from params? 
         # you can access the name in two ways:  params["name"]
         # or params["workspace"]["name"]
