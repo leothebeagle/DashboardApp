@@ -1,10 +1,11 @@
 // --------------------- Variables ----------------
-const workspaceButton = document.querySelector("#create-workspace-btn")
+// const workspaceButton = document.querySelector("#create-workspace-btn")
 const workspaceForm = document.querySelector("#new-workspace-form")
 const quoteButton = document.querySelector("#rndm-quote-btn");
 const eventButton = document.querySelector("#create-event-btn");
 const randomQuoteCardContent = document.querySelector(".random-quote-card .quote-card-content")
 const eventAndResourcesForm = document.querySelector("#event-resources-form") 
+
 // -------------------------- Classes ------------------------
 class Quote {
     constructor(author, content) {
@@ -27,16 +28,28 @@ function retrieveRandomQuote() {
         })
 }
 
-function createWorkspace(event) {
-    event.preventDefault();
-    
-
-    // I want this to be an assembler function that'll invoke the appropriate functions.
+  
+function postWorkspace(workspaceFormData) {
+        console.log(workspaceFormData.name.value)
+    // fetch("http://localhost:3000/workspaces", {
+    //             method: 'POST',
+    //             headers: {
+    //               'Content-Type': 'application/json',
+    //               Accept: "application/json"
+    //             },
+    //             body: JSON.stringify({
+    //               "name": workspaceFormData.workspace-name.value
+    //             })
+    //           })
 }
+
 
 // --------------------------- EVENT LISTENERS -----------------------------------------------------------------
 
-workspaceForm.addEventListener("submit", createWorkspace);         
+workspaceForm.addEventListener("submit", event => {
+    event.preventDefault();
+    postWorkspace(event.target);
+});         
 
 quoteButton.addEventListener("click", retrieveRandomQuote) 
 
@@ -68,3 +81,25 @@ eventButton.addEventListener("click", function(event) {
 
 //  document.addEventListener('DOMContentLoaded', (event) => {
 // });
+
+
+// function postToy(toy_data) {
+//     fetch('http://localhost:3000/toys', {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json',
+//           Accept: "application/json"
+//         },
+//         body: JSON.stringify({
+//           "name": toy_data.name.value,
+//           "image": toy_data.image.value,
+//           "likes": 0
+  
+//         })
+//       })
+//       .then(res => res.json())
+//       .then((obj_toy) => {
+//         let new_toy = renderToys(obj_toy)
+//         divCollect.append(new_toy)
+//       })
+//   }
