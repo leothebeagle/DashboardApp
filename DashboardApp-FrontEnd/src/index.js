@@ -1,5 +1,5 @@
 // --------------------- Variables ----------------
-// const workspaceButton = document.querySelector("#create-workspace-btn")
+
 const workspaceForm = document.querySelector("#new-workspace-form")
 const quoteButton = document.querySelector("#rndm-quote-btn");
 const eventButton = document.querySelector("#create-event-btn");
@@ -29,18 +29,18 @@ function retrieveRandomQuote() {
 }
 
   
-function postWorkspace(workspaceFormData) {
-        console.log(workspaceFormData.name.value)
-    // fetch("http://localhost:3000/workspaces", {
-    //             method: 'POST',
-    //             headers: {
-    //               'Content-Type': 'application/json',
-    //               Accept: "application/json"
-    //             },
-    //             body: JSON.stringify({
-    //               "name": workspaceFormData.workspace-name.value
-    //             })
-    //           })
+function postWorkspace(formData) {
+        // console.log(formData)
+    fetch("http://localhost:3000/workspaces", {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  Accept: "application/json"
+                },
+                body: JSON.stringify({
+                  "name": formData.workspace-name.value
+                })
+              })
 }
 
 
