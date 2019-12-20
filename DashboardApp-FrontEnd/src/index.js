@@ -50,8 +50,8 @@ function postWorkspace(formData) {
         })
     .then(response => response.json())
     .then(function(json){
-        // let newWorkspace = new Workspace(json);
-        console.log(json);
+        let newWorkspace = new Workspace(json);
+        console.log(newWorkspace);
     })
 }
 
