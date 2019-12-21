@@ -6,6 +6,8 @@ const eventButton = document.querySelector("#create-event-btn");
 const randomQuoteCardContent = document.querySelector(".random-quote-card .quote-card-content")
 const eventAndResourcesForm = document.querySelector("#event-resources-form") 
 
+let currentWorkspace;
+
 // -------------------------- Classes ------------------------
 class Quote {
     constructor(author, content) {
@@ -34,7 +36,10 @@ function retrieveRandomQuote() {
         })
 }
 
-  
+function setWorkspace(workspace) {
+    currentWorkspace = workspace;
+}
+
 function postWorkspace(formData) {
         // console.log(formData)
     fetch("http://localhost:3000/workspaces", {
