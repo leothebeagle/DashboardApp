@@ -36,9 +36,10 @@ function retrieveRandomQuote() {
         })
 }
 
-function setWorkspace(workspace) {
+function setCurrentWorkspace(workspace) {
     currentWorkspace = workspace;
 }
+
 
 function postWorkspace(formData) {
         // console.log(formData)
@@ -56,7 +57,7 @@ function postWorkspace(formData) {
     .then(response => response.json())
     .then(function(json){
         let newWorkspace = new Workspace(json);
-        console.log(newWorkspace);
+        setCurrentWorkspace(newWorkspace)
     })
 }
 
