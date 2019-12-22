@@ -5,6 +5,7 @@ const quoteButton = document.querySelector("#rndm-quote-btn");
 const eventButton = document.querySelector("#create-event-btn");
 const randomQuoteCardContent = document.querySelector(".random-quote-card .quote-card-content");
 const eventAndResourcesForm = document.querySelector("#event-resources-form");
+const workspaceTitleElement = document.querySelector("#workspace-title-display")
 
 let currentWorkspace;
 
@@ -35,6 +36,7 @@ function retrieveRandomQuote() {
             // you can then call another function whose job it is to inject HTML into the specified area.
         })
 };
+
 
 function setCurrentWorkspace(workspace) {
     currentWorkspace = workspace;
