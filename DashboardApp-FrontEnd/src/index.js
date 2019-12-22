@@ -50,7 +50,8 @@ function setCurrentWorkspace(workspace) {
 };
 
 function createWorkSpaceObject(workspaceJSON) {
-    let newWorkspace = new Workspace(workspaceJSON);
+    let newWorkspace = new Workspace(workspaceJSON.name);
+    // console.log(workspaceJSON);
     setCurrentWorkspace(newWorkspace)
 };  
 
