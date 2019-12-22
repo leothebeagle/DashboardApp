@@ -38,8 +38,15 @@ function retrieveRandomQuote() {
 };
 
 
+function displayWorkspaceTitle() {
+    let workspaceHeader = document.createElement('h3');
+    workspaceHeader.innerHTML = `${currentWorkspace.name}`;
+    workspaceTitleElement.appendChild(workspaceHeader);
+};
+
 function setCurrentWorkspace(workspace) {
     currentWorkspace = workspace;
+    displayWorkspaceTitle();
 };
 
 function createWorkSpaceObject(workspaceJSON) {
