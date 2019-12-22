@@ -1,10 +1,10 @@
 // --------------------- Variables ----------------
 
-const workspaceForm = document.querySelector("#new-workspace-form")
+const workspaceForm = document.querySelector("#new-workspace-form");
 const quoteButton = document.querySelector("#rndm-quote-btn");
 const eventButton = document.querySelector("#create-event-btn");
-const randomQuoteCardContent = document.querySelector(".random-quote-card .quote-card-content")
-const eventAndResourcesForm = document.querySelector("#event-resources-form") 
+const randomQuoteCardContent = document.querySelector(".random-quote-card .quote-card-content");
+const eventAndResourcesForm = document.querySelector("#event-resources-form");
 
 let currentWorkspace;
 
@@ -14,13 +14,13 @@ class Quote {
         this.author = author;
         this.content = content;
     }
-}
+};
 
 class Workspace {
     constructor(name) {
         this.name = name;
     }
-}
+};
 
 // ------------------------- Functions -----------------------------
 
@@ -34,12 +34,16 @@ function retrieveRandomQuote() {
             // to a variable
             // you can then call another function whose job it is to inject HTML into the specified area.
         })
-}
+};
 
 function setCurrentWorkspace(workspace) {
     currentWorkspace = workspace;
-}
+};
 
+function createWorkSpaceObject(workspaceJSON) {
+    let newWorkspace = new Workspace(workspaceJSON);
+    setCurrentWorkspace(newWorkspace)
+};  
 
 function postWorkspace(formData) {
         // console.log(formData)
@@ -56,11 +60,9 @@ function postWorkspace(formData) {
         })
     .then(response => response.json())
     .then(function(json){
-        let newWorkspace = new Workspace(json);
-        setCurrentWorkspace(newWorkspace)
+        createWorkSpaceObject(json)
     })
-}
-
+};
 
 // --------------------------- EVENT LISTENERS -----------------------------------------------------------------
 
