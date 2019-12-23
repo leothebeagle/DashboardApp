@@ -18,8 +18,9 @@ class Quote {
 };
 
 class Workspace {
-    constructor(name) {
-        this.name = name;
+    constructor(workspaceJSON) {
+        this.id = workspaceJSON.id;
+        this.name = workspaceJSON.name;
     }
 };
 
@@ -50,8 +51,7 @@ function setCurrentWorkspace(workspace) {
 };
 
 function createWorkSpaceObject(workspaceJSON) {
-    let newWorkspace = new Workspace(workspaceJSON.name);
-    // console.log(workspaceJSON);
+    let newWorkspace = new Workspace(workspaceJSON);
     setCurrentWorkspace(newWorkspace)
 };  
 
