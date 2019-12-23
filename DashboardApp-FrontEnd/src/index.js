@@ -52,6 +52,7 @@ function setCurrentWorkspace(workspace) {
 
 function createWorkSpaceObject(workspaceJSON) {
     let newWorkspace = new Workspace(workspaceJSON);
+    workspaceForm.reset();
     setCurrentWorkspace(newWorkspace)
 };  
 
