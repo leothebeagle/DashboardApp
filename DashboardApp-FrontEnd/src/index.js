@@ -42,6 +42,7 @@ function retrieveRandomQuote() {
 function displayWorkspaceTitle() {
     let workspaceHeader = document.createElement('h3');
     workspaceHeader.innerHTML = `${currentWorkspace.name}`;
+    workspaceTitleElement.removeChild(workspaceTitleElement.childNodes[0]);
     workspaceTitleElement.appendChild(workspaceHeader);
 };
 
@@ -53,7 +54,7 @@ function setCurrentWorkspace(workspace) {
 function createWorkSpaceObject(workspaceJSON) {
     let newWorkspace = new Workspace(workspaceJSON);
     workspaceForm.reset();
-    setCurrentWorkspace(newWorkspace)
+    setCurrentWorkspace(newWorkspace);
 };  
 
 function postWorkspace(formData) {
