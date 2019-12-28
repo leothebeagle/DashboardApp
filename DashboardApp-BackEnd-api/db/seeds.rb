@@ -18,7 +18,6 @@ quotes = Quote.create([
     { author: "Khalil Gibran" , content: "The most talkative is the least intelligent, and there is hardly a difference between an orator and an auctioneer." },
     { author: "Khalil Gibran" , content: "A madman is not less a musician than you or myself; only the instrument on which he plays is a little out of tune." },
     { author: "Khalil Gibran" , content: "How stupid is he who would patch the hatred in his eyes with the smile of his lips." },
-    { author: "Khalil Gibran" , content: "Perhaps a man may commit suicide in self-defense." },
     { author: "Khalil Gibran" , content: "It is only when you are pursued that you become swift." },
     { author: "Khalil Gibran" , content: "A great singer is he who sings our silences." },
     { author: "Khalil Gibran" , content: "When you long for blessings that you may not name, and when you grieve knowing not the cause, then indeed you are growing with all things that grow, and rising toward your greater self." },
