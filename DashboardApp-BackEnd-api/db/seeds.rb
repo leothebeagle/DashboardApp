@@ -27,5 +27,6 @@ quotes = Quote.create([
     { author: "Khalil Gibran" , content: "Love one another, but make not a bond of love: Let it rather be a moving sea between the shores of your souls." },
     { author: "Khalil Gibran" , content: "In the sweetness of friendship let there be laughter, and sharing of pleasures. For in the dew of little things the heart finds its morning and is refreshed." },
     { author: "Khalil Gibran" , content: "Ever has it been that love knows not its own depth until the hour of separation." },
-    { author: "Khalil Gibran" , content: "Out of suffering have emerged the strongest souls; the most massive characters are seared with scars." }
+    { author: "Khalil Gibran" , content: "Out of suffering have emerged the strongest souls; the most massive characters are seared with scars." },
+    { author: "Albert Adria" , content: "Callar y trabajar." }
     ])
