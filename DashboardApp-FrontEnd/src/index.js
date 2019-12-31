@@ -108,7 +108,21 @@ eventButton.addEventListener("click", function(event) {
         .then(json => console.log(json))
 })
 
+function displayWorkspaces() {
+    configurationObject = {
+        method: "GET",
+        headers: {
+            "Content-Type":"application/json",
+            "Accept":"application/json"
+        },
+        body:JSON.stringify({
+            
+        })
 
+    fetch("http://localhost:3000/workspaces", configurationObject)
+    .then(response => console.log(response))
+    }
+}
 
 
 //  document.addEventListener('DOMContentLoaded', (event) => {
