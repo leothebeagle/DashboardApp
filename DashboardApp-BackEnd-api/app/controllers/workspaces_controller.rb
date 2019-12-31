@@ -11,6 +11,7 @@ class WorkspacesController < ApplicationController
     end
 
     def index 
-        raise params.inspect
+        workspaces = Workspace.all 
+        render :json => workspaces
     end
 end
