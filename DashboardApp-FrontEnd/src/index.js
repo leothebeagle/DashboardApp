@@ -118,7 +118,8 @@ function displayWorkspaces() {
     }
 
     fetch("http://localhost:3000/workspaces", configurationObject) 
-        .then( response => console.log(response) ) 
+        .then( response => response.json() )
+        .then( json => console.log(json)) 
 }
 
 
