@@ -115,13 +115,10 @@ function displayWorkspaces() {
             "Content-Type":"application/json",
             "Accept":"application/json"
         },
-        body:JSON.stringify({
-            
-        })
-
-    fetch("http://localhost:3000/workspaces", configurationObject)
-    .then(response => console.log(response))
     }
+
+    fetch("http://localhost:3000/workspaces", configurationObject) 
+        .then( response => console.log(response) ) 
 }
 
 
