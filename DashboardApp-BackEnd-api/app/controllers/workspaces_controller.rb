@@ -9,4 +9,8 @@ class WorkspacesController < ApplicationController
         # maybe you havent made this connection yet, but the response is also sent back 
         # through the same route that the post request arrived through. so yes the url is serving back a response. 
     end
+
+    def index 
+        raise params.inspect
+    end
 end
