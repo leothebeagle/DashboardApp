@@ -38,19 +38,6 @@ function retrieveRandomQuote() {
         })
 };
 
-
-function displayWorkspaceTitle() {
-    let workspaceHeader = document.createElement('h3');
-    workspaceHeader.innerHTML = `${currentWorkspace.name}`;
-    workspaceTitleElement.removeChild(workspaceTitleElement.childNodes[0]);
-    workspaceTitleElement.appendChild(workspaceHeader);
-};
-
-function setCurrentWorkspace(workspace) {
-    currentWorkspace = workspace;
-    displayWorkspaceTitle();
-};
-
 function createWorkSpaceObject(workspaceJSON) {
     let newWorkspace = new Workspace(workspaceJSON);
     workspaceForm.reset();
@@ -75,6 +62,20 @@ function postWorkspace(formData) {
         createWorkSpaceObject(json)
     })
 };
+
+function displayWorkspaces() {
+    configurationObject = {
+        method: "GET",
+        headers: {
+            "Content-Type":"application/json",
+            "Accept":"application/json"
+        },
+    }
+
+    fetch("http://localhost:3000/workspaces", configurationObject) 
+        .then( response => response.json() )
+        .then( json => console.log(json[0].events)) 
+}
 
 // --------------------------- EVENT LISTENERS -----------------------------------------------------------------
 
@@ -108,19 +109,9 @@ eventButton.addEventListener("click", function(event) {
         .then(json => console.log(json))
 })
 
-function displayWorkspaces() {
-    configurationObject = {
-        method: "GET",
-        headers: {
-            "Content-Type":"application/json",
-            "Accept":"application/json"
-        },
-    }
+// -----------------------------------------------------------------------------------------------------------------
 
-    fetch("http://localhost:3000/workspaces", configurationObject) 
-        .then( response => response.json() )
-        .then( json => console.log(json)) 
-}
+
 
 
 //  document.addEventListener('DOMContentLoaded', (event) => {
