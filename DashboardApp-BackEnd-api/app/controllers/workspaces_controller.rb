@@ -12,7 +12,8 @@ class WorkspacesController < ApplicationController
 
     def index 
         workspaces = Workspace.all 
-        render :json => workspaces, :except => [:created_at, :updated_at]
+        render :json => workspaces, :include => :events, :except => [:created_at, :updated_at]
+        
     end
 end
 
