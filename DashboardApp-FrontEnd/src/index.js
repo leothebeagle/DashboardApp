@@ -41,7 +41,6 @@ function retrieveRandomQuote() {
 function createWorkSpaceObject(workspaceJSON) {
     let newWorkspace = new Workspace(workspaceJSON);
     workspaceForm.reset();
-    setCurrentWorkspace(newWorkspace);
 };  
 
 function postWorkspace(formData) {
