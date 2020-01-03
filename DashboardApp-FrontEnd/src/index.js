@@ -71,6 +71,12 @@ function postWorkspace(formData) {
     })
 };
 
+function createAllWorkspaceObjects(json) {
+   json.forEach(createWorkspaceObject)
+//    json[0] => represents a workspace and its associated events. we want to convert this into an object.
+//    json[0].events => the workspace's events array. you can iterate over this.
+};
+
 function retrieveWorkspaces() {
     configurationObject = {
         method: "GET",
@@ -82,7 +88,9 @@ function retrieveWorkspaces() {
 
     fetch("http://localhost:3000/workspaces", configurationObject) 
         .then( response => response.json() ) 
-        .then( json => console.log(json[0].events)) 
+        .then(function(json) {
+            createAllWorkspacesObjects(json)
+        }) 
 }
 
 // --------------------------- EVENT LISTENERS -----------------------------------------------------------------
@@ -146,3 +154,5 @@ eventButton.addEventListener("click", function(event) {
 //         divCollect.append(new_toy)
 //       })
 //   }
+
+
