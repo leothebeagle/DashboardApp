@@ -6,6 +6,7 @@ const eventButton = document.querySelector("#create-event-btn");
 const randomQuoteCardContent = document.querySelector(".random-quote-card .quote-card-content");
 const eventAndResourcesForm = document.querySelector("#event-resources-form");
 const workspaceTitleElement = document.querySelector("#workspace-title-display")
+let workspaceObjects = [];
 
 let currentWorkspace;
 
@@ -46,7 +47,8 @@ function displayWorkspace(workspaceObject) {
 };
 
 function createWorkSpaceObject(workspaceJSON) {
-    let newWorkspace = new Workspace(workspaceJSON);
+    const newWorkspace = new Workspace(workspaceJSON);
+    workspaceObjects.push(newWorkspace);
     displayWorkspace(newWorkspace);
     workspaceForm.reset();
 };  
@@ -72,7 +74,7 @@ function postWorkspace(formData) {
 };
 
 function createAllWorkspaceObjects(json) {
-   json.forEach(createWorkspaceObject)
+   json.forEach(createWorkSpaceObject)
 //    json[0] => represents a workspace and its associated events. we want to convert this into an object.
 //    json[0].events => the workspace's events array. you can iterate over this.
 };
@@ -89,7 +91,7 @@ function retrieveWorkspaces() {
     fetch("http://localhost:3000/workspaces", configurationObject) 
         .then( response => response.json() ) 
         .then(function(json) {
-            createAllWorkspacesObjects(json)
+            createAllWorkspaceObjects(json)
         }) 
 }
 
