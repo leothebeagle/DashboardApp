@@ -40,6 +40,7 @@ function retrieveRandomQuote() {
 
 function createWorkSpaceObject(workspaceJSON) {
     let newWorkspace = new Workspace(workspaceJSON);
+    
     workspaceForm.reset();
 };  
 
@@ -52,6 +53,7 @@ function postWorkspace(formData) {
             'Accept': "application/json"
         },
         body: JSON.stringify({
+            // we are converting the json below into a string so it can be transported.
             // "workspace": formData.name.value
             workspace: { name: formData.name.value}
         })
