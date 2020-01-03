@@ -64,7 +64,7 @@ function postWorkspace(formData) {
     })
 };
 
-function displayWorkspaces() {
+function retrieveWorkspaces() {
     configurationObject = {
         method: "GET",
         headers: {
