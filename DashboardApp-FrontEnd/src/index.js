@@ -38,9 +38,16 @@ function retrieveRandomQuote() {
         })
 };
 
+function displayWorkspace(workspaceObject) {
+    // code to create HTML element(s) with workspaces data goes here. 
+    const workspace = workspaceObject;
+    console.log(workspaceObject);
+    return workspace; 
+};
+
 function createWorkSpaceObject(workspaceJSON) {
     let newWorkspace = new Workspace(workspaceJSON);
-    
+    displayWorkspace(newWorkspace);
     workspaceForm.reset();
 };  
 
@@ -74,7 +81,7 @@ function retrieveWorkspaces() {
     }
 
     fetch("http://localhost:3000/workspaces", configurationObject) 
-        .then( response => response.json() )
+        .then( response => response.json() ) 
         .then( json => console.log(json[0].events)) 
 }
 
