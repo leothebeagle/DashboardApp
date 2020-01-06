@@ -74,6 +74,9 @@ function createWorkspaceCard(workspaceObject) {
     const workspaceTitleContainer = document.createElement('div');
     workspaceTitleContainer.className = 'workspace-title-display';
     workspaceTitleContainer.id = `workspace-${workspaceObject.id}-title`;
+    workspaceTitleContainer.innerHTML = `
+        <h4>${workspaceObject.name}</h4>
+    `
     console.log(workspaceTitleContainer);
 };
 
