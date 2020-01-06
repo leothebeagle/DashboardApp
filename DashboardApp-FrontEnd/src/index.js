@@ -77,7 +77,10 @@ function postWorkspace(formData) {
         body: JSON.stringify({
             // we are converting the json below into a string so it can be transported.
             // "workspace": formData.name.value
-            workspace: { name: formData.name.value}
+            // the format below is exactly what will be received in params. 
+            workspace: { 
+                name: formData.name.value
+            }
         })
         })
     .then(response => response.json())
