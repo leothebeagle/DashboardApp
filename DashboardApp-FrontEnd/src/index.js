@@ -49,22 +49,27 @@ function displayWorkspace(workspaceObject) {
 
 function createWorkSpaceObject(workspaceJSON) {
     const newWorkspace = new Workspace(workspaceJSON);
-    console.log(newWorkspace)
-    // workspaceObjects.push(newWorkspace);
-    // displayWorkspace(newWorkspace);
-    // workspaceForm.reset();
-    let workspace = document.createElement('div');
-    workspace.className = 'workspace-card';
-    workspace.innerHTML = `
-    <div id="${newWorkspace.id}">${newWorkspace.name}</div>
-    `
-    // console.log(workspace);
-    let workspaceContainer = document.querySelector('.workspaces-deck-display')
-    // console.log(workspaceContainer)
-    workspaceContainer.append(workspace);
+    return newWorkspace;
+    // console.log(newWorkspace)
+    // // workspaceObjects.push(newWorkspace);
+    // // displayWorkspace(newWorkspace);
+    // // workspaceForm.reset();
+    // let workspace = document.createElement('div');
+    // workspace.className = 'workspace-card';
+    // workspace.innerHTML = `
+    // <div id="${newWorkspace.id}">${newWorkspace.name}</div>
+    // `
+    // // console.log(workspace);
+    // let workspaceContainer = document.querySelector('.workspaces-deck-display')
+    // // console.log(workspaceContainer)
+    // workspaceContainer.append(workspace);
 };  
 
-
+function handleWorkspaceJSON(workspaceJSON) {
+    // console.log(workspaceJSON)
+    const newWorkspaceObject = createWorkSpaceObject(workspaceJSON);
+    console.log(newWorkspaceObject);
+};
 
 function postWorkspace(formData) {
         // console.log(formData)
@@ -85,32 +90,32 @@ function postWorkspace(formData) {
         })
     .then(response => response.json())
     .then(function(json){
-        createWorkSpaceObject(json)
+        handleWorkspaceJSON(json)
     })
 };
 
-function createAllWorkspaceObjects(json) {
-   json.forEach(createWorkSpaceObject)
-//    json[0] => represents a workspace and its associated events. we want to convert this into an object.
-//    json[0].events => the workspace's events array. you can iterate over this.
-};
+// function createAllWorkspaceObjects(json) {
+//    json.forEach(createWorkSpaceObject)
+// //    json[0] => represents a workspace and its associated events. we want to convert this into an object.
+// //    json[0].events => the workspace's events array. you can iterate over this.
+// };
 
-function retrieveWorkspaces() {
-    configurationObject = {
-        method: "GET",
-        headers: {
-            "Content-Type":"application/json",
-            "Accept":"application/json"
-        },
-    }
+// function retrieveWorkspaces() {
+//     configurationObject = {
+//         method: "GET",
+//         headers: {
+//             "Content-Type":"application/json",
+//             "Accept":"application/json"
+//         },
+//     }
 
-    fetch("http://localhost:3000/workspaces", configurationObject) 
-        .then( response => response.json() ) 
-        .then(function(json) {
-            console.log(json)
-            // createAllWorkspaceObjects(json)
-        }) 
-}
+//     fetch("http://localhost:3000/workspaces", configurationObject) 
+//         .then( response => response.json() ) 
+//         .then(function(json) {
+//             console.log(json)
+//             // createAllWorkspaceObjects(json)
+//         }) 
+// }
 
 // --------------------------- EVENT LISTENERS -----------------------------------------------------------------
 
@@ -121,28 +126,28 @@ workspaceForm.addEventListener("submit", event => {
 
 quoteButton.addEventListener("click", retrieveRandomQuote) 
 
-eventButton.addEventListener("click", function(event) {
-    event.preventDefault();
+// eventButton.addEventListener("click", function(event) {
+//     event.preventDefault();
     
-    configurationObject = {
-        method: "POST",
-        headers: {
-            "Content-Type":"application/json",
-            "Accept":"application/json"
-        },
-        body:JSON.stringify({
-            "event-title":eventAndResourcesForm["event-title"].value,
-            "suggested-time":eventAndResourcesForm["suggested-time"].value,
-            "url":eventAndResourcesForm["url"].value,
-            "resource-name":eventAndResourcesForm["resource-name"].value,
-            "resource-description":eventAndResourcesForm["resource-description"].value
-        })
-    };
+//     configurationObject = {
+//         method: "POST",
+//         headers: {
+//             "Content-Type":"application/json",
+//             "Accept":"application/json"
+//         },
+//         body:JSON.stringify({
+//             "event-title":eventAndResourcesForm["event-title"].value,
+//             "suggested-time":eventAndResourcesForm["suggested-time"].value,
+//             "url":eventAndResourcesForm["url"].value,
+//             "resource-name":eventAndResourcesForm["resource-name"].value,
+//             "resource-description":eventAndResourcesForm["resource-description"].value
+//         })
+//     };
 
-    fetch("http://localhost:3000/events", configurationObject)
-        .then(response => response.json())
-        .then(json => console.log(json))
-})
+//     fetch("http://localhost:3000/events", configurationObject)
+//         .then(response => response.json())
+//         .then(json => console.log(json))
+// })
 
 // -----------------------------------------------------------------------------------------------------------------
 
