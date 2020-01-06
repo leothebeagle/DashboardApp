@@ -65,10 +65,16 @@ function createWorkSpaceObject(workspaceJSON) {
     // workspaceContainer.append(workspace);
 };  
 
+function createWorkspaceCard(workspaceObject) {
+    const workspaceContainer = document.createElement('div')
+    
+};
+
 function handleWorkspaceJSON(workspaceJSON) {
-    // console.log(workspaceJSON)
+
     const newWorkspaceObject = createWorkSpaceObject(workspaceJSON);
-    console.log(newWorkspaceObject);
+    createWorkspaceCard(newWorkspaceObject);
+
 };
 
 function postWorkspace(formData) {
