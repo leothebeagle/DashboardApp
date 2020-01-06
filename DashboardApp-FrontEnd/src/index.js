@@ -22,7 +22,8 @@ class Workspace {
     constructor(workspaceJSON) {
         this.id = workspaceJSON.id;
         this.name = workspaceJSON.name;
-    }
+        this.events = workspaceJSON.events;
+    };
 };
 
 // ------------------------- Functions -----------------------------
@@ -48,10 +49,22 @@ function displayWorkspace(workspaceObject) {
 
 function createWorkSpaceObject(workspaceJSON) {
     const newWorkspace = new Workspace(workspaceJSON);
-    workspaceObjects.push(newWorkspace);
-    displayWorkspace(newWorkspace);
-    workspaceForm.reset();
+    console.log(newWorkspace)
+    // workspaceObjects.push(newWorkspace);
+    // displayWorkspace(newWorkspace);
+    // workspaceForm.reset();
+    let workspace = document.createElement('div');
+    workspace.className = 'workspace-card';
+    workspace.innerHTML = `
+    <div id="${newWorkspace.id}">${newWorkspace.name}</div>
+    `
+    // console.log(workspace);
+    let workspaceContainer = document.querySelector('.workspaces-deck-display')
+    // console.log(workspaceContainer)
+    workspaceContainer.append(workspace);
 };  
+
+
 
 function postWorkspace(formData) {
         // console.log(formData)
@@ -91,7 +104,8 @@ function retrieveWorkspaces() {
     fetch("http://localhost:3000/workspaces", configurationObject) 
         .then( response => response.json() ) 
         .then(function(json) {
-            createAllWorkspaceObjects(json)
+            console.log(json)
+            // createAllWorkspaceObjects(json)
         }) 
 }
 
