@@ -69,7 +69,12 @@ function createWorkspaceCard(workspaceObject) {
     const workspaceContainer = document.createElement('div');
     workspaceContainer.className = 'workspace-card';
     workspaceContainer.id = `workspace-${workspaceObject.id}`
-    console.log(workspaceContainer);
+    // console.log(workspaceContainer);
+
+    const workspaceTitleContainer = document.createElement('div');
+    workspaceTitleContainer.className = 'workspace-title-display';
+    workspaceTitleContainer.id = `workspace-${workspaceObject.id}-title`;
+    console.log(workspaceTitleContainer);
 };
 
 function handleWorkspaceJSON(workspaceJSON) {
