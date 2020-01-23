@@ -1,4 +1,11 @@
 class WorkspacesController < ApplicationController
+    
+    def show 
+        workspace = Workspace.first
+
+        render :json => workspace, :include => :events, :except => [:created_at, :updated_at]
+    end
+
     def create 
         # what data do we need from params? 
         # you can access the name in two ways:  params["name"]
