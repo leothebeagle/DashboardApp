@@ -27,5 +27,6 @@ quotes = Quote.create([
     { author: "Khalil Gibran" , content: "In the sweetness of friendship let there be laughter, and sharing of pleasures. For in the dew of little things the heart finds its morning and is refreshed." },
     { author: "Khalil Gibran" , content: "Ever has it been that love knows not its own depth until the hour of separation." },
     { author: "Khalil Gibran" , content: "Out of suffering have emerged the strongest souls; the most massive characters are seared with scars." },
-    { author: "Albert Adria" , content: "Callar y trabajar." }
+    { author: "Albert Adria" , content: "Callar y trabajar." },
+    {author: "Paul Graham" , content: "The most damaging thing you learned in school wasn't something you learned in any specific class. It was learning to get good grades." }
     ])
