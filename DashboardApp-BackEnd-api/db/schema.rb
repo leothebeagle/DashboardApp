@@ -27,15 +27,6 @@ ActiveRecord::Schema.define(version: 2019_12_18_234050) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "resources", force: :cascade do |t|
-    t.string "url"
-    t.string "resource_name"
-    t.string "resource_description"
-    t.integer "event_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "workspaces", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
