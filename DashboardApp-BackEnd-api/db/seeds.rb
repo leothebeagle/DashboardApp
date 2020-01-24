@@ -7,7 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 quotes = Quote.create([
-    {author: "Khalil Gibran" , content: "" },
     {author: "Khalil Gibran" , content: "When you enjoy loving your neighbor it ceases to be a virtue." },
     {author: "Khalil Gibran" , content: "Strange that creatures without backbones have the hardest shells." },
     {author: "Khalil Gibran" , content: "When night comes and you too are dark, lie down and be dark with a will.
