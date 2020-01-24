@@ -5,10 +5,8 @@ const quoteButton = document.querySelector("#rndm-quote-btn");
 const eventButton = document.querySelector("#create-event-btn");
 const randomQuoteCardContent = document.querySelector(".random-quote-card .quote-card-content");
 const eventAndResourcesForm = document.querySelector("#event-resources-form");
-const workspaceTitleElement = document.querySelector("#workspace-title-display")
+const workspaceTitleElement = document.querySelector("#workspace-title-display");
 let workspaceObjects = [];
-
-let currentWorkspace;
 
 // -------------------------- Classes ------------------------
 class Quote {
@@ -40,75 +38,82 @@ function retrieveRandomQuote() {
         })
 };
 
-function displayWorkspace(workspaceObject) {
-    // code to create HTML element(s) with workspaces data goes here. 
-    const workspace = workspaceObject;
-    console.log(workspaceObject);
-    return workspace; 
-};
+// function displayWorkspace(workspaceObject) {
+//     // code to create HTML element(s) with workspaces data goes here. 
+//     const workspace = workspaceObject;
+//     console.log(workspaceObject);
+//     return workspace; 
+// };
 
-function createWorkSpaceObject(workspaceJSON) {
-    const newWorkspace = new Workspace(workspaceJSON);
-    return newWorkspace;
-    // console.log(newWorkspace)
-    // // workspaceObjects.push(newWorkspace);
-    // // displayWorkspace(newWorkspace);
-    // // workspaceForm.reset();
-    // let workspace = document.createElement('div');
-    // workspace.className = 'workspace-card';
-    // workspace.innerHTML = `
-    // <div id="${newWorkspace.id}">${newWorkspace.name}</div>
-    // `
-    // // console.log(workspace);
-    // let workspaceContainer = document.querySelector('.workspaces-deck-display')
-    // // console.log(workspaceContainer)
-    // workspaceContainer.append(workspace);
+function createWorkspaceObject(workspaceJSON) {
+    let newWorkspaceObject = new Workspace(workspaceJSON);
+    return newWorkspaceObject;
+    // workspaceObjects.push(newWorkspaceObject);
 };  
 
-function createWorkspaceCard(workspaceObject) {
-    const workspaceContainer = document.createElement('div');
-    workspaceContainer.className = 'workspace-card';
-    workspaceContainer.id = `workspace-${workspaceObject.id}`
-    // console.log(workspaceContainer);
+// function createWorkspaceCard(workspaceObject) {
+//     const workspaceContainer = document.createElement('div');
+//     workspaceContainer.className = 'workspace-card';
+//     workspaceContainer.id = `workspace-${workspaceObject.id}`
+    
+//     const workspaceTitleContainer = document.createElement('div');
+//     workspaceTitleContainer.className = 'workspace-title-display';
+//     workspaceTitleContainer.id = `workspace-${workspaceObject.id}-title`;
+//     workspaceTitleContainer.innerHTML = `
+//     <h4>${workspaceObject.name}</h4>
+//     `
+//     const workspaceEventsContainer = document.createElement('div')
 
-    const workspaceTitleContainer = document.createElement('div');
-    workspaceTitleContainer.className = 'workspace-title-display';
-    workspaceTitleContainer.id = `workspace-${workspaceObject.id}-title`;
-    workspaceTitleContainer.innerHTML = `
-        <h4>${workspaceObject.name}</h4>
-    `
-    console.log(workspaceTitleContainer);
-};
 
-function handleWorkspaceJSON(workspaceJSON) {
+//     console.log(workspaceTitleContainer)
+// };
 
-    const newWorkspaceObject = createWorkSpaceObject(workspaceJSON);
-    createWorkspaceCard(newWorkspaceObject);
+// function handleWorkspaceJSON(workspaceJSON) {
 
-};
+//     const newWorkspaceObject = createWorkSpaceObject(workspaceJSON);
+//     createWorkspaceCard(newWorkspaceObject);
 
-function postWorkspace(formData) {
-        // console.log(formData)
-    fetch("http://localhost:3000/workspaces", {
-        method: 'POST',
+// };
+
+// function postWorkspace(formData) {
+//         // console.log(formData)
+//     fetch("http://localhost:3000/workspaces", {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Accept': "application/json"
+//         },
+//         body: JSON.stringify({
+//             // we are converting the json below into a string so it can be transported.
+//             // "workspace": formData.name.value
+//             // the format below is exactly what will be received in params. 
+//             workspace: { 
+//                 name: formData.name.value
+//             }
+//         })
+//         })
+//     .then(response => response.json())
+//     .then(function(json){
+//         handleWorkspaceJSON(json)
+//     })
+// };
+
+function retrieveFirstWorkspace() {
+    configurationObject = {
+        method: "GET",
         headers: {
-            'Content-Type': 'application/json',
-            'Accept': "application/json"
+            "Content-Type":"application/json",
+            "Accept":"application/json"
         },
-        body: JSON.stringify({
-            // we are converting the json below into a string so it can be transported.
-            // "workspace": formData.name.value
-            // the format below is exactly what will be received in params. 
-            workspace: { 
-                name: formData.name.value
-            }
-        })
-        })
-    .then(response => response.json())
-    .then(function(json){
-        handleWorkspaceJSON(json)
-    })
-};
+    };
+    
+    fetch("http://localhost:3000/workspaces/1", configurationObject) 
+        .then( response => response.json() ) 
+        .then(function(json) {
+            let workspace = createWorkspaceObject(json);
+            console.log(workspace);
+        }) 
+}
 
 // function createAllWorkspaceObjects(json) {
 //    json.forEach(createWorkSpaceObject)
@@ -195,4 +200,6 @@ quoteButton.addEventListener("click", retrieveRandomQuote)
 //       })
 //   }
 
+// ------------------------------------------- functions to execute on page load --------------------------------
 
+retrieveRandomQuote();
