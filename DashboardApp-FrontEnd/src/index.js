@@ -98,46 +98,6 @@ function createWorkspaceObject(workspaceJSON) {
 //     })
 // };
 
-function retrieveFirstWorkspace() {
-    configurationObject = {
-        method: "GET",
-        headers: {
-            "Content-Type":"application/json",
-            "Accept":"application/json"
-        },
-    };
-    
-    fetch("http://localhost:3000/workspaces/1", configurationObject) 
-        .then( response => response.json() ) 
-        .then(function(json) {
-            let workspace = createWorkspaceObject(json);
-            console.log(workspace);
-        }) 
-}
-
-// function createAllWorkspaceObjects(json) {
-//    json.forEach(createWorkSpaceObject)
-// //    json[0] => represents a workspace and its associated events. we want to convert this into an object.
-// //    json[0].events => the workspace's events array. you can iterate over this.
-// };
-
-// function retrieveWorkspaces() {
-//     configurationObject = {
-//         method: "GET",
-//         headers: {
-//             "Content-Type":"application/json",
-//             "Accept":"application/json"
-//         },
-//     }
-
-//     fetch("http://localhost:3000/workspaces", configurationObject) 
-//         .then( response => response.json() ) 
-//         .then(function(json) {
-//             console.log(json)
-//             // createAllWorkspaceObjects(json)
-//         }) 
-// }
-
 // --------------------------- EVENT LISTENERS -----------------------------------------------------------------
 
 workspaceForm.addEventListener("submit", event => {
@@ -177,28 +137,6 @@ quoteButton.addEventListener("click", retrieveRandomQuote)
 
 //  document.addEventListener('DOMContentLoaded', (event) => {
 // });
-
-
-// function postToy(toy_data) {
-//     fetch('http://localhost:3000/toys', {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json',
-//           Accept: "application/json"
-//         },
-//         body: JSON.stringify({
-//           "name": toy_data.name.value,
-//           "image": toy_data.image.value,
-//           "likes": 0
-  
-//         })
-//       })
-//       .then(res => res.json())
-//       .then((obj_toy) => {
-//         let new_toy = renderToys(obj_toy)
-//         divCollect.append(new_toy)
-//       })
-//   }
 
 // ------------------------------------------- functions to execute on page load --------------------------------
 
