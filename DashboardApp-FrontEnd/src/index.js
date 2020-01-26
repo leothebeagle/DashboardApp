@@ -75,37 +75,35 @@ function createWorkspaceObject(workspaceJSON) {
 
 // };
 
-// function postWorkspace(formData) {
-//         // console.log(formData)
-//     fetch("http://localhost:3000/workspaces", {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json',
-//             'Accept': "application/json"
-//         },
-//         body: JSON.stringify({
-//             // we are converting the json below into a string so it can be transported.
-//             // "workspace": formData.name.value
-//             // the format below is exactly what will be received in params. 
-//             workspace: { 
-//                 name: formData.name.value
-//             }
-//         })
-//         })
-//     .then(response => response.json())
-//     .then(function(json){
-//         handleWorkspaceJSON(json)
-//     })
-// };
+function postWorkspace(formData) {
+        // console.log(formData)
+    fetch("http://localhost:3000/workspaces", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': "application/json"
+        },
+        body: JSON.stringify({
+            // we are converting the json below into a string so it can be transported.
+            // "workspace": formData.name.value
+            // the format below is exactly what will be received in params. 
+            workspace: { 
+                name: formData.name.value
+            }
+        })
+        })
+    .then(response => response.json())
+    .then(json => console.log(json))
+};
 
 // --------------------------- EVENT LISTENERS -----------------------------------------------------------------
+        
+quoteButton.addEventListener("click", retrieveRandomQuote);
 
 workspaceForm.addEventListener("submit", event => {
     event.preventDefault();
     postWorkspace(event.target);
-});         
-
-quoteButton.addEventListener("click", retrieveRandomQuote) 
+}); 
 
 // eventButton.addEventListener("click", function(event) {
 //     event.preventDefault();
