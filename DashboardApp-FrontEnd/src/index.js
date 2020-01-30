@@ -56,16 +56,16 @@ function createWorkspaceCard(workspaceObject) {
     workspaceCard.id = `workspace-${workspaceObject.id}`
     // console.log(workspaceCard);
     // console.log(workspaceObject);
-    // const workspaceTitleContainer = document.createElement('div');
-    // workspaceTitleContainer.className = 'workspace-title-display';
-    // workspaceTitleContainer.id = `workspace-${workspaceObject.id}-title`;
-    // workspaceTitleContainer.innerHTML = `
-    // <h4>${workspaceObject.name}</h4>
-    // `
-    // const workspaceEventsContainer = document.createElement('div')
+    const workspaceTitleSection = document.createElement('div');
+    workspaceTitleSection.className = 'workspace-title-section';
+    workspaceTitleSection.id = `workspace-${workspaceObject.id}-title`;
+    workspaceTitleSection.innerHTML = `
+    <h4>${workspaceObject.name}</h4>
+    `
+    // const workspaceEventsSection = document.createElement('div')
 
 
-    // console.log(workspaceTitleContainer)
+    console.log(workspaceTitleSection);
 };
 
 function handleWorkspaceJSON(workspaceJSON) {
