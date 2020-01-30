@@ -48,32 +48,33 @@ function retrieveRandomQuote() {
 function createWorkspaceObject(workspaceJSON) {
     let newWorkspaceObject = new Workspace(workspaceJSON);
     return newWorkspaceObject;
-    // workspaceObjects.push(newWorkspaceObject);
 };  
 
-// function createWorkspaceCard(workspaceObject) {
-//     const workspaceContainer = document.createElement('div');
-//     workspaceContainer.className = 'workspace-card';
-//     workspaceContainer.id = `workspace-${workspaceObject.id}`
-    
-//     const workspaceTitleContainer = document.createElement('div');
-//     workspaceTitleContainer.className = 'workspace-title-display';
-//     workspaceTitleContainer.id = `workspace-${workspaceObject.id}-title`;
-//     workspaceTitleContainer.innerHTML = `
-//     <h4>${workspaceObject.name}</h4>
-//     `
-//     const workspaceEventsContainer = document.createElement('div')
+function createWorkspaceCard(workspaceObject) {
+    const workspaceCard = document.createElement('div');
+    workspaceCard.className = 'workspace-card';
+    workspaceCard.id = `workspace-${workspaceObject.id}`
+    // console.log(workspaceCard);
+    // console.log(workspaceObject);
+    // const workspaceTitleContainer = document.createElement('div');
+    // workspaceTitleContainer.className = 'workspace-title-display';
+    // workspaceTitleContainer.id = `workspace-${workspaceObject.id}-title`;
+    // workspaceTitleContainer.innerHTML = `
+    // <h4>${workspaceObject.name}</h4>
+    // `
+    // const workspaceEventsContainer = document.createElement('div')
 
 
-//     console.log(workspaceTitleContainer)
-// };
+    // console.log(workspaceTitleContainer)
+};
 
-// function handleWorkspaceJSON(workspaceJSON) {
-
-//     const newWorkspaceObject = createWorkSpaceObject(workspaceJSON);
-//     createWorkspaceCard(newWorkspaceObject);
-
-// };
+function handleWorkspaceJSON(workspaceJSON) {
+    // console.log(workspaceJSON)
+    const newWorkspaceObject = createWorkspaceObject(workspaceJSON);
+    // console.log(newWorkspaceObject);
+    const newWorkspaceCard = createWorkspaceCard(newWorkspaceObject);
+    // displayWorkspaceCard(newWorkspaceCard);
+};
 
 function postWorkspace(formData) {
         // console.log(formData)
@@ -93,7 +94,7 @@ function postWorkspace(formData) {
         })
         })
     .then(response => response.json())
-    .then(json => console.log(json))
+    .then(json => handleWorkspaceJSON(json))
 };
 
 // --------------------------- EVENT LISTENERS -----------------------------------------------------------------
