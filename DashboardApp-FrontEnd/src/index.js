@@ -1,6 +1,7 @@
 // --------------------- Variables ----------------
 
 const workspaceForm = document.querySelector("#new-workspace-form");
+const workspacesDeck = document.querySelector(".workspaces-deck");
 const quoteButton = document.querySelector("#rndm-quote-btn");
 const eventButton = document.querySelector("#create-event-btn");
 const randomQuoteCardContent = document.querySelector(".random-quote-card .quote-card-content");
