@@ -63,10 +63,12 @@ function createWorkspaceCard(workspaceObject) {
     workspaceTitleSection.innerHTML = `
     <h4>${workspaceObject.name}</h4>
     `
+    workspaceCard.append(workspaceTitleSection);
     // const workspaceEventsSection = document.createElement('div')
 
 
-    console.log(workspaceTitleSection);
+    // console.log(workspaceTitleSection);
+    workspacesDeck.append(workspaceCard)
 };
 
 function handleWorkspaceJSON(workspaceJSON) {
