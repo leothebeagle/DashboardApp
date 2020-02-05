@@ -77,6 +77,7 @@ function handleWorkspaceJSON(workspaceJSON) {
     // console.log(newWorkspaceObject);
     const newWorkspaceCard = createWorkspaceCard(newWorkspaceObject);
     // displayWorkspaceCard(newWorkspaceCard);
+    workspaceForm.reset();
 };
 
 function postWorkspace(formData) {
