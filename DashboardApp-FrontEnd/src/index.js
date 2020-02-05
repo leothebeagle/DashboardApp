@@ -64,11 +64,18 @@ function createWorkspaceCard(workspaceObject) {
     <h4>${workspaceObject.name}</h4>
     `
     workspaceCard.append(workspaceTitleSection);
-    // const workspaceEventsSection = document.createElement('div')
-
+    const workspaceEventsSection = document.createElement('div');
+    workspaceEventsSection.className = 'workspace-events-section';
+    workspaceEventsSection.id = `workspace-events-${workspaceObject.id}`;
+    workspaceEventsSection.innerHTML = `
+        <h4>Events:</h4>
+    `
 
     // console.log(workspaceTitleSection);
-    workspacesDeck.append(workspaceCard)
+    workspaceCard.append(workspaceTitleSection);
+    workspaceCard.append(workspaceEventsSection);
+    workspacesDeck.append(workspaceCard);
+
 };
 
 function handleWorkspaceJSON(workspaceJSON) {
