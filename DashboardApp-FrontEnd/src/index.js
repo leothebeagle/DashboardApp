@@ -69,9 +69,16 @@ function createWorkspaceCard(workspaceObject) {
     workspaceEventsSection.id = `workspace-events-${workspaceObject.id}`;
     workspaceEventsSection.innerHTML = `
         <h4>Events:</h4>
+        <form class="new-event-form" id="new-event-workspace-${workspaceObject.id}">
+            New Event: <br>
+            <input type="text" name="event-name" placeholder="add event">
+            <input type="text" name="event-suggested-time" placeholder="suggested time">
+            <button class="create-event-btn" type="submit">Add Event</button>
+        </form>
     `
 
-    // console.log(workspaceTitleSection);
+
+
     workspaceCard.append(workspaceTitleSection);
     workspaceCard.append(workspaceEventsSection);
     workspacesDeck.append(workspaceCard);
