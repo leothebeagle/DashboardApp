@@ -71,9 +71,9 @@ function createWorkspaceCard(workspaceObject) {
         <h4>Events:</h4>
         <form class="new-event-form">
             New Event: <br>
-            <input type="hidden" name="event-workspace" value="${workspaceObject.id}">
-            <input type="text" name="event-name">
-            <input type="text" name="event-suggested-time" placeholder="suggested time">
+            <input type="hidden" name="workspace" value="${workspaceObject.id}">
+            <input type="text" name="name">
+            <input type="text" name="time" placeholder="suggested time">
             <button class="create-event-btn" type="submit">Add Event</button>
         </form>
     `
@@ -128,7 +128,7 @@ workspaceForm.addEventListener("submit", event => {
 workspacesDeck.addEventListener("submit", function(e) {
     if(e.target && e.target.className == "new-event-form"){
         e.preventDefault();
-        console.log("ive bubbled up to the surface")
+        console.log(e.target);
     }
 })
 
