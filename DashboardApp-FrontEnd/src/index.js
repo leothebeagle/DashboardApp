@@ -55,8 +55,7 @@ function createWorkspaceCard(workspaceObject) {
     const workspaceCard = document.createElement('div');
     workspaceCard.className = 'workspace-card';
     workspaceCard.id = `workspace-${workspaceObject.id}`
-    // console.log(workspaceCard);
-    // console.log(workspaceObject);
+    
     const workspaceTitleSection = document.createElement('div');
     workspaceTitleSection.className = 'workspace-title-section';
     workspaceTitleSection.id = `workspace-${workspaceObject.id}-title`;
@@ -64,14 +63,16 @@ function createWorkspaceCard(workspaceObject) {
     <h4>${workspaceObject.name}</h4>
     `
     workspaceCard.append(workspaceTitleSection);
+
     const workspaceEventsSection = document.createElement('div');
     workspaceEventsSection.className = 'workspace-events-section';
     workspaceEventsSection.id = `workspace-events-${workspaceObject.id}`;
     workspaceEventsSection.innerHTML = `
         <h4>Events:</h4>
-        <form class="new-event-form" id="new-event-workspace-${workspaceObject.id}">
+        <form class="new-event-form">
             New Event: <br>
-            <input type="text" name="event-name" placeholder="add event">
+            <input type="hidden" name="event-workspace" value="${workspaceObject.id}">
+            <input type="text" name="event-name">
             <input type="text" name="event-suggested-time" placeholder="suggested time">
             <button class="create-event-btn" type="submit">Add Event</button>
         </form>
@@ -123,6 +124,15 @@ workspaceForm.addEventListener("submit", event => {
     event.preventDefault();
     postWorkspace(event.target);
 }); 
+
+workspacesDeck.addEventListener("submit", function(e) {
+    if(e.target && e.target.className == "new-event-form"){
+        e.preventDefault();
+        console.log("ive bubbled up to the surface")
+    }
+})
+
+
 
 // eventButton.addEventListener("click", function(event) {
 //     event.preventDefault();
