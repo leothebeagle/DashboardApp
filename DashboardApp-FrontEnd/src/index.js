@@ -116,6 +116,10 @@ function postWorkspace(formData) {
     .then(json => handleWorkspaceJSON(json))
 };
 
+function postNewEvent(formData) {
+    console.log(formData)
+}
+
 // --------------------------- EVENT LISTENERS -----------------------------------------------------------------
         
 quoteButton.addEventListener("click", retrieveRandomQuote);
@@ -125,10 +129,10 @@ workspaceForm.addEventListener("submit", event => {
     postWorkspace(event.target);
 }); 
 
-workspacesDeck.addEventListener("submit", function(e) {
-    if(e.target && e.target.className == "new-event-form"){
-        e.preventDefault();
-        console.log(e.target);
+workspacesDeck.addEventListener("submit", function(event) {
+    if(event.target && event.target.className == "new-event-form"){
+        event.preventDefault();
+        postNewEvent(event);
     }
 })
 
