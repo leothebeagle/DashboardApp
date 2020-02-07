@@ -154,7 +154,12 @@ function postNewEvent(formData) {
 
 // --------------------------- EVENT LISTENERS -----------------------------------------------------------------
         
-quoteButton.addEventListener("click", retrieveRandomQuote); 
+quoteButton.addEventListener("click", retrieveRandomQuote);
+
+workspaceForm.addEventListener("submit", event => {
+    event.preventDefault();
+    postWorkspace(event.target);
+}); 
 
 workspacesDeck.addEventListener("submit", function(event) {
     if(event.target && event.target.className == "new-event-form"){
