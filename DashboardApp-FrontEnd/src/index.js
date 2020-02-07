@@ -118,6 +118,7 @@ function postWorkspace(formData) {
 
 function postNewEvent(formData) {
     console.log(formData)
+    console.log(`I bubbled up from ${formData.workspace.value} event form!`)
 }
 
 // --------------------------- EVENT LISTENERS -----------------------------------------------------------------
@@ -132,7 +133,7 @@ workspaceForm.addEventListener("submit", event => {
 workspacesDeck.addEventListener("submit", function(event) {
     if(event.target && event.target.className == "new-event-form"){
         event.preventDefault();
-        postNewEvent(event);
+        postNewEvent(event.target);
     }
 })
 
