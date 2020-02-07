@@ -25,6 +25,14 @@ class Workspace {
     };
 };
 
+class Event {
+    constructor(eventJSON) {
+        this.is = eventJSON.id;
+        this.name = eventJSON.event_title;
+        this.workspaceId = eventJSON.worksapce_id; 
+    }
+}
+
 // ------------------------- Functions -----------------------------
 
 function retrieveRandomQuote() {
@@ -146,12 +154,7 @@ function postNewEvent(formData) {
 
 // --------------------------- EVENT LISTENERS -----------------------------------------------------------------
         
-quoteButton.addEventListener("click", retrieveRandomQuote);
-
-workspaceForm.addEventListener("submit", event => {
-    event.preventDefault();
-    postWorkspace(event.target);
-}); 
+quoteButton.addEventListener("click", retrieveRandomQuote); 
 
 workspacesDeck.addEventListener("submit", function(event) {
     if(event.target && event.target.className == "new-event-form"){
