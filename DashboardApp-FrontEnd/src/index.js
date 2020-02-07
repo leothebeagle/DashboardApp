@@ -27,7 +27,7 @@ class Workspace {
 
 class Event {
     constructor(eventJSON) {
-        this.is = eventJSON.id;
+        this.id = eventJSON.id;
         this.name = eventJSON.event_title;
         this.workspaceId = eventJSON.worksapce_id; 
     }
@@ -124,10 +124,15 @@ function postWorkspace(formData) {
     .then(json => handleWorkspaceJSON(json))
 };
 
+function createEventObject(eventJSON) {
+    let newEventObject = new Event(eventJSON);
+    return newEventObject;
+}
+
 function handleEventJSON(eventJSON) {
-    console.log(eventJSON);
-    // const newEventObject = createEventObject(eventJSON);
-    // console.log(newEventObject);
+    // console.log(eventJSON);
+    const newEventObject = createEventObject(eventJSON);
+    console.log(newEventObject);
 }
 
 function postNewEvent(formData) {
