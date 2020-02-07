@@ -124,9 +124,15 @@ function postWorkspace(formData) {
     .then(json => handleWorkspaceJSON(json))
 };
 
+function handleEventJSON(eventJSON) {
+    console.log(eventJSON);
+    // const newEventObject = createEventObject(eventJSON);
+    // console.log(newEventObject);
+}
+
 function postNewEvent(formData) {
-    console.log(formData);
-    console.log(`I bubbled up from ${formData.workspace.value} event form!`);
+    // console.log(formData);
+    // console.log(`I bubbled up from ${formData.workspace.value} event form!`);
 
     fetch(`http://localhost:3000/workspaces/${formData.workspace.value}/events`, {
 
@@ -149,7 +155,7 @@ function postNewEvent(formData) {
         })
         })
     .then(response => response.json())
-    .then(json => console.log(json))
+    .then(json => handleEventJSON(json))
 }
 
 // --------------------------- EVENT LISTENERS -----------------------------------------------------------------
@@ -167,31 +173,6 @@ workspacesDeck.addEventListener("submit", function(event) {
         postNewEvent(event.target);
     }
 })
-
-
-
-// eventButton.addEventListener("click", function(event) {
-//     event.preventDefault();
-    
-//     configurationObject = {
-//         method: "POST",
-//         headers: {
-//             "Content-Type":"application/json",
-//             "Accept":"application/json"
-//         },
-//         body:JSON.stringify({
-//             "event-title":eventAndResourcesForm["event-title"].value,
-//             "suggested-time":eventAndResourcesForm["suggested-time"].value,
-//             "url":eventAndResourcesForm["url"].value,
-//             "resource-name":eventAndResourcesForm["resource-name"].value,
-//             "resource-description":eventAndResourcesForm["resource-description"].value
-//         })
-//     };
-
-//     fetch("http://localhost:3000/events", configurationObject)
-//         .then(response => response.json())
-//         .then(json => console.log(json))
-// })
 
 // -----------------------------------------------------------------------------------------------------------------
 
