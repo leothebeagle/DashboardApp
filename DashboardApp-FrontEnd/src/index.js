@@ -117,8 +117,31 @@ function postWorkspace(formData) {
 };
 
 function postNewEvent(formData) {
-    console.log(formData)
-    console.log(`I bubbled up from ${formData.workspace.value} event form!`)
+    console.log(formData);
+    console.log(`I bubbled up from ${formData.workspace.value} event form!`);
+
+    fetch(`http://localhost:3000/workspaces/${formData.workspace.value}/events`, {
+        
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': "application/json"
+        },
+        body: JSON.stringify({
+            // we are converting the json below into a string so it can be transported.
+            // "workspace": formData.name.value
+            // the format below is exactly what will be received in params. 
+            event: { 
+                name: formData.name.value,
+                time: formData.time.value
+            },
+            workspace: {
+                id: formData.workspace.value
+            }
+        })
+        })
+    // .then(response => response.json())
+    // .then(json => handleWorkspaceJSON(json))
 }
 
 // --------------------------- EVENT LISTENERS -----------------------------------------------------------------
