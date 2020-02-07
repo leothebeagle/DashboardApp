@@ -121,7 +121,7 @@ function postNewEvent(formData) {
     console.log(`I bubbled up from ${formData.workspace.value} event form!`);
 
     fetch(`http://localhost:3000/workspaces/${formData.workspace.value}/events`, {
-        
+
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -140,8 +140,8 @@ function postNewEvent(formData) {
             }
         })
         })
-    // .then(response => response.json())
-    // .then(json => handleWorkspaceJSON(json))
+    .then(response => response.json())
+    .then(json => console.log(json))
 }
 
 // --------------------------- EVENT LISTENERS -----------------------------------------------------------------
