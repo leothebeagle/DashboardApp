@@ -29,7 +29,7 @@ class Event {
     constructor(eventJSON) {
         this.id = eventJSON.id;
         this.name = eventJSON.event_title;
-        this.workspaceId = eventJSON.worksapce_id; 
+        this.workspaceId = eventJSON.workspace_id; 
     };
 }
 
@@ -85,7 +85,7 @@ function createWorkspaceCard(workspaceObject) {
             <button class="create-event-btn" type="submit">Add Event</button>
         </form>
 
-        <ul class="event-list">
+        <ul class="event-list" id="list-${workspaceObject.id}">
         </ul>
     `
 
@@ -130,29 +130,24 @@ function postWorkspace(formData) {
 function createEventObject(eventJSON) {
     let newEventObject = new Event(eventJSON);
     return newEventObject;
-}
+};
 
 function createEventLi(eventObject) {
     let li = document.createElement('li');
     li.id = `${eventObject.id}`;
     li.innerHTML=`${eventObject.name}`
     return li;
-}
-
-function displayEventLi(eventLi) {
-    form = document.querySelector("")
 };
 
 function handleEventJSON(eventJSON) {
-    // console.log(eventJSON);
-    const newEventObject = createEventObject(eventJSON);
-     // console.log(newEventObject);
-    const eventLi = createEventLi(newEventObject);
-    // console.log(eventLi);
-    displayEventLi(eventLi);
-   
+    let newEventObject = createEventObject(eventJSON);
 
-}
+    let eventLi = createEventLi(newEventObject);
+    let eventList = document.getElementById(`list-${newEventObject.workspaceId}`);
+
+    eventList.append(eventLi);
+    console.log(eventList);
+};
 
 function postNewEvent(formData) {
     // console.log(formData);
