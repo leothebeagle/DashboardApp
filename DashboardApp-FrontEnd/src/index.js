@@ -29,6 +29,7 @@ class Event {
     constructor(eventJSON) {
         this.id = eventJSON.id;
         this.name = eventJSON.event_title;
+        this.suggestedTime = eventJSON.suggested_time
         this.workspaceId = eventJSON.workspace_id; 
     };
 }
@@ -135,7 +136,7 @@ function createEventObject(eventJSON) {
 function createEventLi(eventObject) {
     let li = document.createElement('li');
     li.id = `${eventObject.id}`;
-    li.innerHTML=`${eventObject.name}`
+    li.innerHTML=`${eventObject.name} - ${eventObject.suggestedTime}`
     return li;
 };
 
@@ -146,7 +147,6 @@ function handleEventJSON(eventJSON) {
     let eventList = document.getElementById(`list-${newEventObject.workspaceId}`);
 
     eventList.append(eventLi);
-    console.log(eventList);
 };
 
 function postNewEvent(formData) {
