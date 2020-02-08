@@ -84,7 +84,7 @@ function createWorkspaceCard(workspaceObject) {
             <input type="text" name="time" placeholder="suggested time">
             <button class="create-event-btn" type="submit">Add Event</button>
 
-            <ul class="workspace-${workspaceObject.id}-event-list-">
+            <ul class="event-list">
             </ul>
         </form>
 
@@ -133,11 +133,17 @@ function createEventObject(eventJSON) {
     return newEventObject;
 }
 
+function createEventLi(eventObject) {
+    const li = document.createElement('li');
+    li.id = `${eventObject.id}`;
+    return li;
+}
+
 function handleEventJSON(eventJSON) {
     // console.log(eventJSON);
     const newEventObject = createEventObject(eventJSON);
+    const eventLi = createEventLi(newEventObject);
     // console.log(newEventObject);
-
 
 }
 
