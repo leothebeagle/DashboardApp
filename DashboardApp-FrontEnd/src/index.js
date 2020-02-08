@@ -30,7 +30,7 @@ class Event {
         this.id = eventJSON.id;
         this.name = eventJSON.event_title;
         this.workspaceId = eventJSON.worksapce_id; 
-    }
+    };
 }
 
 // ------------------------- Functions -----------------------------
@@ -77,13 +77,17 @@ function createWorkspaceCard(workspaceObject) {
     workspaceEventsSection.id = `workspace-events-${workspaceObject.id}`;
     workspaceEventsSection.innerHTML = `
         <h4>Events:</h4>
-        <form class="new-event-form">
+        <form class="new-event-form" id="${workspaceObject.id}">
             New Event: <br>
             <input type="hidden" name="workspace" value="${workspaceObject.id}">
             <input type="text" name="name">
             <input type="text" name="time" placeholder="suggested time">
             <button class="create-event-btn" type="submit">Add Event</button>
+
+            <ul class="workspace-${workspaceObject.id}-event-list-">
+            </ul>
         </form>
+
     `
 
 
@@ -132,7 +136,9 @@ function createEventObject(eventJSON) {
 function handleEventJSON(eventJSON) {
     // console.log(eventJSON);
     const newEventObject = createEventObject(eventJSON);
-    console.log(newEventObject);
+    // console.log(newEventObject);
+
+
 }
 
 function postNewEvent(formData) {
@@ -190,3 +196,18 @@ workspacesDeck.addEventListener("submit", function(event) {
 // ------------------------------------------- functions to execute on page load --------------------------------
 
 retrieveRandomQuote();
+
+// useful functions for event forms can be adapted to a single event form using an argument and
+// a query selector in the function body
+
+// function hideAllEventForms {
+//     for (const form of eventForms) {
+//         form.style.display="none"   
+//     }
+// };
+
+// function displayAllEventForms {
+//     for (const form of eventForms) {
+//         form.style.display="block"   
+//     }
+// }
