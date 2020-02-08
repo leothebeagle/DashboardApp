@@ -134,16 +134,24 @@ function createEventObject(eventJSON) {
 }
 
 function createEventLi(eventObject) {
-    const li = document.createElement('li');
+    let li = document.createElement('li');
     li.id = `${eventObject.id}`;
+    li.innerHTML=`${eventObject.name}`
     return li;
 }
+
+function displayEventLi(eventLi) {
+    form = document.querySelector("")
+};
 
 function handleEventJSON(eventJSON) {
     // console.log(eventJSON);
     const newEventObject = createEventObject(eventJSON);
+     // console.log(newEventObject);
     const eventLi = createEventLi(newEventObject);
-    // console.log(newEventObject);
+    // console.log(eventLi);
+    displayEventLi(eventLi);
+   
 
 }
 
