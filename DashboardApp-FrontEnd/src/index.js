@@ -83,11 +83,10 @@ function createWorkspaceCard(workspaceObject) {
             <input type="text" name="name">
             <input type="text" name="time" placeholder="suggested time">
             <button class="create-event-btn" type="submit">Add Event</button>
-
-            <ul class="event-list">
-            </ul>
         </form>
 
+        <ul class="event-list">
+        </ul>
     `
 
 
