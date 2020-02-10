@@ -1,7 +1,29 @@
+
 body, button {
     font-family: 'Quicksand', sans-serif;
 }
 
+.random-quote-card {
+    margin-left:500px;
+    margin-right:500px;
+    margin-top: 60px;
+    text-align:center;
+}
+
+.workspace-centre {
+    margin-left:150px;
+    margin-right:150px;
+    margin-top: 10px;
+    text-align:center;
+}
+
 .workspace-title-section {
     color:#7696B3;
+}
+
+.workspace-card {
+    display:block;
+    float:left;
+    padding:15px;
+    text-align:left;
 }
