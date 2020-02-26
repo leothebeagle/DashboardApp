@@ -197,6 +197,17 @@ workspacesDeck.addEventListener("submit", function(event) {
     }
 });
 
+workspacesDeck.addEventListener("click", function(event) {
+    event.preventDefault();
+    if(event.target && event.target.className=="workspace-delete-btn") {
+        console.log(event);
+        console.log(event.target);
+        console.log(event);
+        console.log(event.target.id);
+    }   
+    
+})
+
 // -----------------------------------------------------------------------------------------------------------------
 
 
