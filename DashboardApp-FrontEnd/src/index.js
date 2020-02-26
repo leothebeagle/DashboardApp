@@ -134,7 +134,7 @@ function postWorkspace(formData) {
 
 function deleteWorkspace(workspaceId) {
    
-    fetch("http://localhost:3000/workspaces", {
+    fetch(`http://localhost:3000/workspaces/${workspaceId}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
@@ -151,7 +151,7 @@ function deleteWorkspace(workspaceId) {
         })
     // .then(response => response.json())
     // .then(json => handleWorkspaceJSON(json))
-}
+};
 
 function createEventObject(eventJSON) {
     let newEventObject = new Event(eventJSON);
