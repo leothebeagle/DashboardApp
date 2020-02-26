@@ -66,12 +66,18 @@ function createWorkspaceCard(workspaceObject) {
     workspaceCard.id = `workspace-${workspaceObject.id}`
     
     const workspaceTitleSection = document.createElement('div');
+    let workspaceDeleteBtn = document.createElement('button');
+
     workspaceTitleSection.className = 'workspace-title-section';
     workspaceTitleSection.id = `workspace-${workspaceObject.id}-title`;
     workspaceTitleSection.innerHTML = `
     <h4>${workspaceObject.name}</h4>
     `
-    workspaceCard.append(workspaceTitleSection);
+    workspaceDeleteBtn.className = 'workspace-delete-btn';
+    workspaceDeleteBtn.id = `workspace-delete-btn-${workspaceObject.id}`;
+    workspaceDeleteBtn.innerHTML = "Delete Workspace"
+    workspaceTitleSection.append(workspaceDeleteBtn);
+    
 
     const workspaceEventsSection = document.createElement('div');
     workspaceEventsSection.className = 'workspace-events-section';
@@ -89,8 +95,6 @@ function createWorkspaceCard(workspaceObject) {
         <ul class="event-list" id="list-${workspaceObject.id}">
         </ul>
     `
-
-
 
     workspaceCard.append(workspaceTitleSection);
     workspaceCard.append(workspaceEventsSection);
@@ -175,7 +179,7 @@ function postNewEvent(formData) {
         })
     .then(response => response.json())
     .then(json => handleEventJSON(json))
-}
+};
 
 // --------------------------- EVENT LISTENERS -----------------------------------------------------------------
         
@@ -191,7 +195,7 @@ workspacesDeck.addEventListener("submit", function(event) {
         event.preventDefault();
         postNewEvent(event.target);
     }
-})
+});
 
 // -----------------------------------------------------------------------------------------------------------------
 
