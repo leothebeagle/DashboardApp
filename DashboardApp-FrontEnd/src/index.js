@@ -74,7 +74,7 @@ function createWorkspaceCard(workspaceObject) {
     <h4>${workspaceObject.name}</h4>
     `
     workspaceDeleteBtn.className = 'workspace-delete-btn';
-    workspaceDeleteBtn.id = `workspace-delete-btn-${workspaceObject.id}`;
+    workspaceDeleteBtn.id = `${workspaceObject.id}`;
     workspaceDeleteBtn.innerHTML = "Delete Workspace"
     workspaceTitleSection.append(workspaceDeleteBtn);
     
@@ -131,6 +131,27 @@ function postWorkspace(formData) {
     .then(response => response.json())
     .then(json => handleWorkspaceJSON(json))
 };
+
+function deleteWorkspace(workspaceId) {
+   
+    fetch("http://localhost:3000/workspaces", {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': "application/json"
+        },
+        body: JSON.stringify({
+            // we are converting the json below into a string so it can be transported.
+            // "workspace": formData.name.value
+            // the format below is exactly what will be received in params. 
+            workspace: { 
+                id: workspaceId
+            }
+        })
+        })
+    // .then(response => response.json())
+    // .then(json => handleWorkspaceJSON(json))
+}
 
 function createEventObject(eventJSON) {
     let newEventObject = new Event(eventJSON);
@@ -200,10 +221,7 @@ workspacesDeck.addEventListener("submit", function(event) {
 workspacesDeck.addEventListener("click", function(event) {
     event.preventDefault();
     if(event.target && event.target.className=="workspace-delete-btn") {
-        console.log(event);
-        console.log(event.target);
-        console.log(event);
-        console.log(event.target.id);
+        deleteWorkspace(event.target.id);
     }   
     
 })
