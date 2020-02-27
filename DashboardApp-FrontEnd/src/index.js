@@ -149,7 +149,9 @@ function deleteWorkspace(workspaceId) {
             }
         })
         })
-    // .then(response => response.json())
+    .then(response => response.json())
+    .then(json => console.log(json));
+    // .then(json => console.log(json))
     // .then(json => handleWorkspaceJSON(json))
 };
 

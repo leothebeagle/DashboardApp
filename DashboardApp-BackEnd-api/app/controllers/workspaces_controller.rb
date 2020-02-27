@@ -11,6 +11,17 @@ class WorkspacesController < ApplicationController
         render json: new_workspace
     end
 
+    
+    def destroy
+        workspace = Workspace.find(params[:workspace][:id])
+        workspace.destroy!
+        
+        if workspace.destroyed?
+            render json: workspace
+        end
+    end
+
+
     # def index 
     #     workspaces = Workspace.all 
     #     render :json => workspaces, :include => :events, :except => [:created_at, :updated_at]
