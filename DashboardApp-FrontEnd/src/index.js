@@ -135,6 +135,12 @@ function postWorkspace(formData) {
     .then(json => handleNewWorkspaceJSON(json))
 };
 
+function removeWorkspaceCard(deletedWorkspaceJSON) {
+    let cardToDelete = document.getElementById(`workspace-${deletedWorkspaceJSON["id"]}`)
+    cardToDelete.remove();
+}
+
+
 function deleteWorkspace(workspaceId) {
    
     fetch(`http://localhost:3000/workspaces/${workspaceId}`, {
@@ -153,7 +159,7 @@ function deleteWorkspace(workspaceId) {
         })
         })
     .then(response => response.json())
-    .then(json => handleDeletedWorkspaceJSON(json));
+    .then(json => removeWorkspaceCard(json));
 };
 
 function createEventObject(eventJSON) {
