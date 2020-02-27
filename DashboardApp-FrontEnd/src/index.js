@@ -98,16 +98,19 @@ function createWorkspaceCard(workspaceObject) {
 
     workspaceCard.append(workspaceTitleSection);
     workspaceCard.append(workspaceEventsSection);
-    workspacesDeck.append(workspaceCard);
-
+    return workspaceCard;
 };
 
-function handleWorkspaceJSON(workspaceJSON) {
+function displayWorkspaceCard(workspaceCard) {
+    workspacesDeck.append(workspaceCard);
+};
+
+function handleNewWorkspaceJSON(workspaceJSON) {
     // console.log(workspaceJSON)
     const newWorkspaceObject = createWorkspaceObject(workspaceJSON);
     // console.log(newWorkspaceObject);
     const newWorkspaceCard = createWorkspaceCard(newWorkspaceObject);
-    // displayWorkspaceCard(newWorkspaceCard);
+    displayWorkspaceCard(newWorkspaceCard);
     workspaceForm.reset();
 };
 
@@ -129,7 +132,7 @@ function postWorkspace(formData) {
         })
         })
     .then(response => response.json())
-    .then(json => handleWorkspaceJSON(json))
+    .then(json => handleNewWorkspaceJSON(json))
 };
 
 function deleteWorkspace(workspaceId) {
@@ -150,9 +153,7 @@ function deleteWorkspace(workspaceId) {
         })
         })
     .then(response => response.json())
-    .then(json => console.log(json));
-    // .then(json => console.log(json))
-    // .then(json => handleWorkspaceJSON(json))
+    .then(json => handleDeletedWorkspaceJSON(json));
 };
 
 function createEventObject(eventJSON) {
@@ -221,12 +222,11 @@ workspacesDeck.addEventListener("submit", function(event) {
 });
 
 workspacesDeck.addEventListener("click", function(event) {
-    event.preventDefault();
     if(event.target && event.target.className=="workspace-delete-btn") {
+        event.preventDefault();
         deleteWorkspace(event.target.id);
     }   
-    
-})
+});
 
 // -----------------------------------------------------------------------------------------------------------------
 
