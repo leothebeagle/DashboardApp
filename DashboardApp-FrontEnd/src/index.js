@@ -78,6 +78,14 @@ function createWorkspaceCard(workspaceObject) {
     workspaceDeleteBtn.innerHTML = "Delete Workspace"
     workspaceTitleSection.append(workspaceDeleteBtn);
     
+    let workspaceEditBtn = document.createElement('button');
+    workspaceEditBtn.className = 'workspace-edit-btn';
+    workspaceEditBtn.id = `${workspaceObject.id}`;
+    workspaceEditBtn.innerHTML = "Edit Workspace"
+    workspaceTitleSection.append(workspaceEditBtn);
+
+
+
 
     const workspaceEventsSection = document.createElement('div');
     workspaceEventsSection.className = 'workspace-events-section';
@@ -184,9 +192,6 @@ function handleEventJSON(eventJSON) {
 };
 
 function postNewEvent(formData) {
-    // console.log(formData);
-    // console.log(`I bubbled up from ${formData.workspace.value} event form!`);
-
     fetch(`http://localhost:3000/workspaces/${formData.workspace.value}/events`, {
 
         method: 'POST',
