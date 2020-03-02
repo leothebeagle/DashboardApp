@@ -14,6 +14,16 @@ class EventsController < ApplicationController
         # params received look like:
         # "event"=>{"name"=>"Fry Onions", "time"=>"30"}, "workspace"=>{"id"=>"1"}
     end
+
+    def destroy 
+        # {"event"=>{"id"=>"22"}, "controller"=>"events", "action"=>"destroy", "id"=>"22"}
+        event = Event.find(params[:event][:id])
+        event.destroy!
+        
+        if event.destroyed?
+            render json: event
+        end
+    end
 end
 
 
