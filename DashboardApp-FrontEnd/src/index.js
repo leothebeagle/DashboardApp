@@ -78,11 +78,11 @@ function createWorkspaceCard(workspaceObject) {
     workspaceDeleteBtn.innerHTML = "Delete Workspace"
     workspaceTitleSection.append(workspaceDeleteBtn);
     
-    let workspaceEditBtn = document.createElement('button');
-    workspaceEditBtn.className = 'workspace-edit-btn';
-    workspaceEditBtn.id = `${workspaceObject.id}`;
-    workspaceEditBtn.innerHTML = "Edit Workspace"
-    workspaceTitleSection.append(workspaceEditBtn);
+    // let workspaceEditBtn = document.createElement('button');
+    // workspaceEditBtn.className = 'workspace-edit-btn';
+    // workspaceEditBtn.id = `${workspaceObject.id}`;
+    // workspaceEditBtn.innerHTML = "Edit Workspace"
+    // workspaceTitleSection.append(workspaceEditBtn);
 
 
 
