@@ -19,11 +19,20 @@ body, button {
 
 .workspace-title-section {
     color:#7696B3;
+    display:block;
 }
 
 .workspace-card {
-    display:block;
-    float:left;
-    padding:15px;
-    text-align:left;
+    display: block;
+    float: left;
+    padding: 15px;
+    text-align: left;
+    border-style: solid;
+    margin-left: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.workspace-title-section {
+    
 }
