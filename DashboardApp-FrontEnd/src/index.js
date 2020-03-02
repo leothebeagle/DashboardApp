@@ -223,7 +223,7 @@ function postNewEvent(formData) {
     .then(json => handleEventJSON(json))
 };
 
-function deleteEvent(event) {
+function deleteEvent(eventID) {
     console.log("im in the function that'll handle deleting the event")
 };
 
@@ -253,7 +253,7 @@ workspacesDeck.addEventListener("click", function(event) {
 workspacesDeck.addEventListener("click", function() {
     if(event.target && event.target.className == "event-delete-btn") {
         event.preventDefault();
-        deleteEvent(event.target);
+        deleteEvent(event.target.id);
     };
 });
 
