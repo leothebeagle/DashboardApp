@@ -21,6 +21,14 @@ class WorkspacesController < ApplicationController
         end
     end
 
+    def update
+        # retrieve the record, update it, and then save the updated object to the database. 
+        binding.pry
+        workspace = Workspace.find(params[:workspace][:id])
+        workspace.update!(params)
+
+    end
+
 
     # def index 
     #     workspaces = Workspace.all 
