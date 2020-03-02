@@ -182,7 +182,7 @@ function createEventLi(eventObject) {
     deleteBtn.id = `${eventObject.id}`;
     deleteBtn.innerHTML = 'Delete'
 
-    li.id = `${eventObject.id}`;
+    li.id = `event-${eventObject.id}`;
     li.innerHTML=`${eventObject.name} - ${eventObject.suggestedTime}`;
 
     li.append(deleteBtn);
@@ -223,6 +223,11 @@ function postNewEvent(formData) {
     .then(json => handleEventJSON(json))
 };
 
+function removeEventLi(deletedEventJSON) {
+    let cardToDelete = document.getElementById(`event-${deletedEventJSON["id"]}`)
+    cardToDelete.remove();
+};
+
 function deleteEvent(eventId) {
     fetch(`http://localhost:3000/events/${eventId}`, {
         method: 'DELETE',
@@ -240,8 +245,7 @@ function deleteEvent(eventId) {
         })
         })
     .then(response => response.json())
-    .then(json => console.log(json));
-    // removeEventLi(json)
+    .then(json => removeEventLi(json));
 };
 
 // --------------------------- EVENT LISTENERS -----------------------------------------------------------------
