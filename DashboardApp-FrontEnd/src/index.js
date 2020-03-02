@@ -223,8 +223,25 @@ function postNewEvent(formData) {
     .then(json => handleEventJSON(json))
 };
 
-function deleteEvent(eventID) {
-    console.log("im in the function that'll handle deleting the event")
+function deleteEvent(eventId) {
+    fetch(`http://localhost:3000/workspaces/${eventId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': "application/json"
+        },
+        body: JSON.stringify({
+            // we are converting the json below into a string so it can be transported.
+            // "workspace": formData.name.value
+            // the format below is exactly what will be received in params. 
+            event: { 
+                id: eventId
+            }
+        })
+        })
+    .then(response => response.json())
+    .then(json => console.log(json));
+    // removeEventLi(json)
 };
 
 // --------------------------- EVENT LISTENERS -----------------------------------------------------------------
