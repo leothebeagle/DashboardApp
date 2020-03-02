@@ -178,7 +178,7 @@ function createEventObject(eventJSON) {
 function createEventLi(eventObject) {
     let li = document.createElement('li');
     let deleteBtn = document.createElement('button');
-    deleteBtn.className = 'delete-btn';
+    deleteBtn.className = 'event-delete-btn';
     deleteBtn.id = `${eventObject.id}`;
     deleteBtn.innerHTML = 'Delete'
 
@@ -240,10 +240,18 @@ workspacesDeck.addEventListener("submit", function(event) {
 });
 
 workspacesDeck.addEventListener("click", function(event) {
-    if(event.target && event.target.className=="workspace-delete-btn") {
+    if(event.target && event.target.className == "workspace-delete-btn") {
         event.preventDefault();
         deleteWorkspace(event.target.id);
     }   
+});
+
+workspacesDeck.addEventListener("click", function() {
+    if(event.target && event.target.className == "event-delete-btn") {
+        event.preventDefault();
+        console.log("I'm an event listener for deleting an event");
+        // deleteEvent(event.target);
+    };
 });
 
 // -----------------------------------------------------------------------------------------------------------------
