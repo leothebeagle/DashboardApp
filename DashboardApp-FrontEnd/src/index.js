@@ -177,8 +177,15 @@ function createEventObject(eventJSON) {
 
 function createEventLi(eventObject) {
     let li = document.createElement('li');
+    let deleteBtn = document.createElement('button');
+    deleteBtn.className = 'delete-btn';
+    deleteBtn.id = `${eventObject.id}`;
+    deleteBtn.innerHTML = 'Delete'
+
     li.id = `${eventObject.id}`;
-    li.innerHTML=`${eventObject.name} - ${eventObject.suggestedTime}`
+    li.innerHTML=`${eventObject.name} - ${eventObject.suggestedTime}`;
+
+    li.append(deleteBtn);
     return li;
 };
 
