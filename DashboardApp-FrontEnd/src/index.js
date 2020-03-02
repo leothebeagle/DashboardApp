@@ -224,7 +224,7 @@ function postNewEvent(formData) {
 };
 
 function deleteEvent(eventId) {
-    fetch(`http://localhost:3000/workspaces/${eventId}`, {
+    fetch(`http://localhost:3000/events/${eventId}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
