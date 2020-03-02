@@ -223,6 +223,10 @@ function postNewEvent(formData) {
     .then(json => handleEventJSON(json))
 };
 
+function deleteEvent(event) {
+    console.log("im in the function that'll handle deleting the event")
+};
+
 // --------------------------- EVENT LISTENERS -----------------------------------------------------------------
         
 quoteButton.addEventListener("click", retrieveRandomQuote);
@@ -249,8 +253,7 @@ workspacesDeck.addEventListener("click", function(event) {
 workspacesDeck.addEventListener("click", function() {
     if(event.target && event.target.className == "event-delete-btn") {
         event.preventDefault();
-        console.log("I'm an event listener for deleting an event");
-        // deleteEvent(event.target);
+        deleteEvent(event.target);
     };
 });
 
