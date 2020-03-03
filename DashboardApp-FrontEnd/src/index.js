@@ -21,7 +21,7 @@ class Workspace {
     constructor(workspaceJSON) {
         this.id = workspaceJSON.id;
         this.name = workspaceJSON.name;
-        this.events = workspaceJSON.events;
+        // this.events = workspaceJSON.events;
     };
 };
 
@@ -63,7 +63,7 @@ function createWorkspaceObject(workspaceJSON) {
 function createWorkspaceCard(workspaceObject) {
     const workspaceCard = document.createElement('div');
     workspaceCard.className = 'workspace-card';
-    workspaceCard.id = `workspace-${workspaceObject.id}`
+    workspaceCard.id = `workspace-${workspaceObject.id}`;
     
     const workspaceTitleSection = document.createElement('div');
     let workspaceDeleteBtn = document.createElement('button');
@@ -254,7 +254,7 @@ function displayWorkspaces(allWorkspacesJSON) {
 
         const newWorkspaceCard = createWorkspaceCard(newWorkspaceObject);
         displayWorkspaceCard(newWorkspaceCard);
-    }
+    };
 };
 
 function retrieveWorkspaces() {
