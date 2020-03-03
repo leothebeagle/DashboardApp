@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   get 'quotes/random', to: 'quotes#random'
 
-  resources :workspaces, only: [:create, :destroy, :update] do
+  resources :workspaces, only: [:create, :destroy, :update, :index] do
     resources :events, only: [:create]
     # you only need to nest when creating so you can establish the foreign key.
   end
