@@ -248,6 +248,15 @@ function deleteEvent(eventId) {
     .then(json => removeEventLi(json));
 };
 
+function displayWorkspaces(allWorkspacesJSON) {
+    for (const workspace of allWorkspacesJSON) {
+        const newWorkspaceObject = createWorkspaceObject(workspace);
+
+        const newWorkspaceCard = createWorkspaceCard(newWorkspaceObject);
+        displayWorkspaceCard(newWorkspaceCard);
+    }
+};
+
 function retrieveWorkspaces() {
     fetch("http://localhost:3000/workspaces", {
         method: 'GET',
@@ -257,8 +266,7 @@ function retrieveWorkspaces() {
         }
         })
     .then((response) => response.json())
-    .then(json => console.log(json));
-    })
+    .then(json => displayWorkspaces(json));
 };
 
 // --------------------------- EVENT LISTENERS -----------------------------------------------------------------
