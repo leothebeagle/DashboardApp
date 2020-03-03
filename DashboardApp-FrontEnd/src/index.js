@@ -21,7 +21,7 @@ class Workspace {
     constructor(workspaceJSON) {
         this.id = workspaceJSON.id;
         this.name = workspaceJSON.name;
-        // this.events = workspaceJSON.events;
+        this.events = workspaceJSON.events;
     };
 };
 
@@ -249,11 +249,15 @@ function deleteEvent(eventId) {
 };
 
 function displayWorkspaces(allWorkspacesJSON) {
-    for (const workspace of allWorkspacesJSON) {
-        const newWorkspaceObject = createWorkspaceObject(workspace);
-
+    for (const dataSet of allWorkspacesJSON) {
+        const newWorkspaceObject = createWorkspaceObject(dataSet);
         const newWorkspaceCard = createWorkspaceCard(newWorkspaceObject);
         displayWorkspaceCard(newWorkspaceCard);
+
+        for(const event of dataSet["events"]) {
+            handleEventJSON(event);
+        }
+    
     };
 };
 
