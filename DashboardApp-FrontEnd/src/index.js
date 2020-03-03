@@ -248,6 +248,19 @@ function deleteEvent(eventId) {
     .then(json => removeEventLi(json));
 };
 
+function retrieveWorkspaces() {
+    fetch("http://localhost:3000/workspaces", {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': "application/json"
+        }
+        })
+    .then((response) => response.json())
+    .then(json => console.log(json));
+    })
+};
+
 // --------------------------- EVENT LISTENERS -----------------------------------------------------------------
         
 quoteButton.addEventListener("click", retrieveRandomQuote);
@@ -278,6 +291,7 @@ workspacesDeck.addEventListener("click", function() {
     };
 });
 
+
 // -----------------------------------------------------------------------------------------------------------------
 
 
@@ -289,6 +303,7 @@ workspacesDeck.addEventListener("click", function() {
 // ------------------------------------------- functions to execute on page load --------------------------------
 
 retrieveRandomQuote();
+retrieveWorkspaces();
 
 // useful functions for event forms can be adapted to a single event form using an argument and
 // a query selector in the function body
