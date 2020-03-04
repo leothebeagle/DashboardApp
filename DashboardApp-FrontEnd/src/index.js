@@ -23,6 +23,10 @@ class Workspace {
         this.name = workspaceJSON.name;
         this.events = workspaceJSON.events;
     };
+
+    display() {
+        console.log("I am a method for workspace objects, called display()")
+    };
 };
 
 class Event {
