@@ -25,7 +25,6 @@ class Workspace {
     };
 
     display() {
-        console.log("I am a method for workspace objects, called display()")
         let card = createWorkspaceCard(this);
         displayWorkspaceCard(card);
     };
@@ -122,6 +121,7 @@ function displayWorkspaceCard(workspaceCard) {
 function handleNewWorkspaceJSON(workspaceJSON) {
     // console.log(workspaceJSON)
     const newWorkspaceObject = createWorkspaceObject(workspaceJSON);
+    workspaceObjects.push(newWorkspaceObject);
     // console.log(newWorkspaceObject);
     const newWorkspaceCard = createWorkspaceCard(newWorkspaceObject);
     displayWorkspaceCard(newWorkspaceCard);
