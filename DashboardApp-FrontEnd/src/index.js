@@ -26,6 +26,8 @@ class Workspace {
 
     display() {
         console.log("I am a method for workspace objects, called display()")
+        let card = createWorkspaceCard(this);
+        displayWorkspaceCard(card);
     };
 };
 
