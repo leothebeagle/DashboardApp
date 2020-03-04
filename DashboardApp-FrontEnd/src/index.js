@@ -8,6 +8,7 @@ const randomQuoteCardContent = document.querySelector(".random-quote-card .quote
 const eventAndResourcesForm = document.querySelector("#event-resources-form");
 const workspaceTitleElement = document.querySelector("#workspace-title-display");
 let workspaceObjects = [];
+let eventObjects = [];
 
 // -------------------------- Classes ------------------------
 class Quote {
