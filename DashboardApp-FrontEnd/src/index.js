@@ -26,8 +26,10 @@ class Workspace {
     };
 
     display() {
-        let card = createWorkspaceCard(this);
-        displayWorkspaceCard(card);
+        // let card = createWorkspaceCard(this);
+        // displayWorkspaceCard(card);
+
+        displayWorkspace(this);
         // Could refactor further so that what I have to write is actually just: displayWorkspaceObject(this)
         // Which then sets off all the functions and logic to create the card, populate it and then append it.
     };
@@ -121,8 +123,9 @@ function createWorkspaceCard(workspaceObject) {
     return workspaceCard;
 };
 
-function displayWorkspaceCard(workspaceCard) {
-    workspacesDeck.append(workspaceCard);
+function displayWorkspace(workspaceObject) {
+    let card = createWorkspaceCard(workspaceObject);
+    workspacesDeck.append(card);
 };
 
 function handleNewWorkspaceJSON(workspaceJSON) {
@@ -210,6 +213,7 @@ function createEventLi(eventObject) {
 
 function handleEventJSON(eventJSON) {
     let newEventObject = createEventObject(eventJSON);
+    eventObjects.push(newEventObject);
     newEventObject.display();
 };
 
