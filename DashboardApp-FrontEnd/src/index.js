@@ -123,7 +123,7 @@ function handleNewWorkspaceJSON(workspaceJSON) {
     const newWorkspaceObject = createWorkspaceObject(workspaceJSON);
     workspaceObjects.push(newWorkspaceObject);
     newWorkspaceObject.display();
-    
+
     workspaceForm.reset();
 };
 
@@ -256,8 +256,7 @@ function deleteEvent(eventId) {
 function displayWorkspaces(allWorkspacesJSON) {
     for (const dataSet of allWorkspacesJSON) {
         const newWorkspaceObject = createWorkspaceObject(dataSet);
-        const newWorkspaceCard = createWorkspaceCard(newWorkspaceObject);
-        displayWorkspaceCard(newWorkspaceCard);
+        newWorkspaceObject.display();
 
         for(const event of dataSet["events"]) {
             handleEventJSON(event);
