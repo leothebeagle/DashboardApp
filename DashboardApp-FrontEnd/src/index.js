@@ -27,6 +27,8 @@ class Workspace {
     display() {
         let card = createWorkspaceCard(this);
         displayWorkspaceCard(card);
+        // Could refactor further so that what I have to write is actually just: displayWorkspaceObject(this)
+        // Which then sets off all the functions and logic to create the card, populate it and then append it.
     };
 };
 
@@ -37,6 +39,10 @@ class Event {
         this.suggestedTime = eventJSON.suggested_time
         this.workspaceId = eventJSON.workspace_id; 
     };
+
+    display() {
+        displayEvent(this);
+    }
 }
 
 // ------------------------- Functions -----------------------------
@@ -175,6 +181,13 @@ function deleteWorkspace(workspaceId) {
     .then(json => removeWorkspaceCard(json));
 };
 
+function displayEvent(eventObject) {
+    let eventLi = createEventLi(eventObject);
+    let eventList = document.getElementById(`list-${eventObject.workspaceId}`);
+
+    eventList.append(eventLi);
+}
+
 function createEventObject(eventJSON) {
     let newEventObject = new Event(eventJSON);
     return newEventObject;
@@ -196,11 +209,7 @@ function createEventLi(eventObject) {
 
 function handleEventJSON(eventJSON) {
     let newEventObject = createEventObject(eventJSON);
-
-    let eventLi = createEventLi(newEventObject);
-    let eventList = document.getElementById(`list-${newEventObject.workspaceId}`);
-
-    eventList.append(eventLi);
+    newEventObject.display();
 };
 
 function postNewEvent(formData) {
