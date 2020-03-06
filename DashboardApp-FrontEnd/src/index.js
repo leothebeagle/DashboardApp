@@ -26,12 +26,7 @@ class Workspace {
     };
 
     display() {
-        // let card = createWorkspaceCard(this);
-        // displayWorkspaceCard(card);
-
         displayWorkspace(this);
-        // Could refactor further so that what I have to write is actually just: displayWorkspaceObject(this)
-        // Which then sets off all the functions and logic to create the card, populate it and then append it.
     };
 };
 
@@ -268,11 +263,10 @@ function deleteEvent(eventId) {
 };
 
 function displayWorkspaces(allWorkspacesJSON) {
-    for (const dataSet of allWorkspacesJSON) {
-        const newWorkspaceObject = createWorkspaceObject(dataSet);
-        newWorkspaceObject.display();
-
-        for(const event of dataSet["events"]) {
+    for (const workspaceData of allWorkspacesJSON) {
+        handleNewWorkspaceJSON(workspaceData)
+        
+        for(const event of workspaceData["events"]) {
             handleEventJSON(event);
         }
     
