@@ -66,7 +66,7 @@ function retrieveRandomQuote() {
 
 function createWorkspaceObject(workspaceJSON) {
     let newWorkspaceObject = new Workspace(workspaceJSON);
-    return newWorkspaceObject;
+    return newWorkspaceObject; 
 };  
 
 function createWorkspaceCard(workspaceObject) {
@@ -262,14 +262,13 @@ function deleteEvent(eventId) {
     .then(json => removeEventLi(json));
 };
 
-function displayWorkspaces(allWorkspacesJSON) {
+function handleAllWorkspacesJSON(allWorkspacesJSON) {
     for (const workspaceData of allWorkspacesJSON) {
         handleNewWorkspaceJSON(workspaceData)
         
         for(const event of workspaceData["events"]) {
             handleEventJSON(event);
         }
-    
     };
 };
 
@@ -282,7 +281,7 @@ function retrieveWorkspaces() {
         }
         })
     .then((response) => response.json())
-    .then(json => displayWorkspaces(json));
+    .then(json => handleAllWorkspacesJSON(json));
 };
 
 // --------------------------- EVENT LISTENERS -----------------------------------------------------------------
