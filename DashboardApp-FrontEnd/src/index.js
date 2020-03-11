@@ -66,6 +66,7 @@ function retrieveRandomQuote() {
 
 function createWorkspaceObject(workspaceJSON) {
     let newWorkspaceObject = new Workspace(workspaceJSON);
+    workspaceObjects.push(newWorkspaceObject);
     return newWorkspaceObject; 
 };  
 
@@ -123,10 +124,9 @@ function displayWorkspace(workspaceObject) {
     workspacesDeck.append(card);
 };
 
-function handleNewWorkspaceJSON(workspaceJSON) {
+function handleWorkspaceJSON(workspaceJSON) {
     
     const newWorkspaceObject = createWorkspaceObject(workspaceJSON);
-    workspaceObjects.push(newWorkspaceObject);
     newWorkspaceObject.display();
 
     workspaceForm.reset();
@@ -150,7 +150,7 @@ function postWorkspace(formData) {
         })
         })
     .then(response => response.json())
-    .then(json => handleNewWorkspaceJSON(json))
+    .then(json => handleWorkspaceJSON(json))
 };
 
 function removeWorkspaceCard(deletedWorkspaceJSON) {
@@ -264,7 +264,7 @@ function deleteEvent(eventId) {
 
 function handleAllWorkspacesJSON(allWorkspacesJSON) {
     for (const workspaceData of allWorkspacesJSON) {
-        handleNewWorkspaceJSON(workspaceData)
+        handleWorkspaceJSON(workspaceData)
         
         for(const event of workspaceData["events"]) {
             handleEventJSON(event);
