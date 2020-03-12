@@ -272,7 +272,7 @@ function handleAllWorkspacesJSON(allWorkspacesJSON) {
     };
 };
 
-function retrieveWorkspaces() {
+function retrieveAllWorkspaces() {
     fetch("http://localhost:3000/workspaces", {
         method: 'GET',
         headers: {
@@ -326,7 +326,7 @@ workspacesDeck.addEventListener("click", function() {
 // ------------------------------------------- functions to execute on page load --------------------------------
 
 retrieveRandomQuote();
-retrieveWorkspaces();
+retrieveAllWorkspaces();
 
 // useful functions for event forms can be adapted to a single event form using an argument and
 // a query selector in the function body
