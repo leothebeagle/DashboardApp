@@ -132,11 +132,6 @@ function handleWorkspaceJSON(workspaceJSON) {
     workspaceForm.reset();
 };
 
-function createWorkspaceObject(workspaceJSON) {
-    const newWorkspaceObject = createWorkspaceObject(workspaceJSON);
-    workspaceObjects.push(newWorkspaceObject);
-}
-
 function postWorkspace(formData) {
         // console.log(formData)
     fetch("http://localhost:3000/workspaces", {
