@@ -262,9 +262,9 @@ function deleteEvent(eventId) {
     .then(json => removeEventLi(json));
 };
 
-function handleAllWorkspacesJSON(allWorkspacesJSON) {
+function createObjects(allWorkspacesJSON) {
     for (const workspaceData of allWorkspacesJSON) {
-        handleNewWorkspaceJSON(workspaceData)
+        createWorkspaceObject(workspaceData)
         
         for(const event of workspaceData["events"]) {
             handleEventJSON(event);
@@ -281,14 +281,14 @@ function retrieveAllWorkspaces() {
         }
         })
     .then((response) => response.json())
-    .then(json => handleAllWorkspacesJSON(json));
+    .then(json => createObjects(json));
 };
 
 function retrieveAndDisplayWorkspaces() {
     retrieveAllWorkspaces();
     displayAllWorkspaces();
     displayAllEvents();
-}
+};
 
 // --------------------------- EVENT LISTENERS -----------------------------------------------------------------
         
