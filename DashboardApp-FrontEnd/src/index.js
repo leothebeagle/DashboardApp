@@ -206,7 +206,7 @@ function createEventLi(eventObject) {
     return li;
 };
 
-function handleEventJSON(eventJSON) {
+function createEventObject(eventJSON) {
     let newEventObject = createEventObject(eventJSON);
     eventObjects.push(newEventObject);
     newEventObject.display();
@@ -234,7 +234,7 @@ function postNewEvent(formData) {
         })
         })
     .then(response => response.json())
-    .then(json => handleEventJSON(json))
+    .then(json => createEventObject(json))
 };
 
 function removeEventLi(deletedEventJSON) {
@@ -267,7 +267,7 @@ function createObjects(allWorkspacesJSON) {
         createWorkspaceObject(workspaceData)
         
         for(const event of workspaceData["events"]) {
-            handleEventJSON(event);
+            createEventObject(event);
         }
     };
 };
