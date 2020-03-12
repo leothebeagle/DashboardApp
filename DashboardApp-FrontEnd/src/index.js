@@ -261,7 +261,7 @@ function deleteEvent(eventId) {
     .then(json => removeEventLi(json));
 };
 
-function createObjects(allWorkspacesJSON) {
+function createWorkspacesAndEventsObjects(allWorkspacesJSON) {
     for (const workspaceData of allWorkspacesJSON) {
         createWorkspaceObject(workspaceData)
         
@@ -271,7 +271,7 @@ function createObjects(allWorkspacesJSON) {
     };
 };
 
-function retrieveAllWorkspaces() {
+function retrieveAllWorkspacesAndEvents() {
     fetch("http://localhost:3000/workspaces", {
         method: 'GET',
         headers: {
@@ -280,11 +280,11 @@ function retrieveAllWorkspaces() {
         }
         })
     .then((response) => response.json())
-    .then(json => createObjects(json));
+    .then(json => createWorkspacesAndEventsObjects(json));
 };
 
 function retrieveAndDisplayWorkspaces() {
-    retrieveAllWorkspaces();
+    retrieveAllWorkspacesAndEvents();
     displayAllWorkspaces();
     displayAllEvents();
 };
@@ -331,7 +331,7 @@ workspacesDeck.addEventListener("click", function() {
 // ------------------------------------------- functions to execute on page load --------------------------------
 
 retrieveRandomQuote();
-retrieveAllWorkspaces();
+retrieveAllWorkspacesAndEvents();
 
 // useful functions for event forms can be adapted to a single event form using an argument and
 // a query selector in the function body
