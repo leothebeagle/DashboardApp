@@ -7,7 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 quotes = Quote.create([
-    {author: "Khalil Gibran" , content: "" },
     {author: "Khalil Gibran" , content: "When you enjoy loving your neighbor it ceases to be a virtue." },
     {author: "Khalil Gibran" , content: "Strange that creatures without backbones have the hardest shells." },
     {author: "Khalil Gibran" , content: "When night comes and you too are dark, lie down and be dark with a will.
@@ -18,7 +17,6 @@ quotes = Quote.create([
     { author: "Khalil Gibran" , content: "The most talkative is the least intelligent, and there is hardly a difference between an orator and an auctioneer." },
     { author: "Khalil Gibran" , content: "A madman is not less a musician than you or myself; only the instrument on which he plays is a little out of tune." },
     { author: "Khalil Gibran" , content: "How stupid is he who would patch the hatred in his eyes with the smile of his lips." },
-    { author: "Khalil Gibran" , content: "Perhaps a man may commit suicide in self-defense." },
     { author: "Khalil Gibran" , content: "It is only when you are pursued that you become swift." },
     { author: "Khalil Gibran" , content: "A great singer is he who sings our silences." },
     { author: "Khalil Gibran" , content: "When you long for blessings that you may not name, and when you grieve knowing not the cause, then indeed you are growing with all things that grow, and rising toward your greater self." },
@@ -28,5 +26,6 @@ quotes = Quote.create([
     { author: "Khalil Gibran" , content: "In the sweetness of friendship let there be laughter, and sharing of pleasures. For in the dew of little things the heart finds its morning and is refreshed." },
     { author: "Khalil Gibran" , content: "Ever has it been that love knows not its own depth until the hour of separation." },
     { author: "Khalil Gibran" , content: "Out of suffering have emerged the strongest souls; the most massive characters are seared with scars." },
-    { author: "Albert Adria" , content: "Callar y trabajar." }
+    { author: "Albert Adria" , content: "Callar y trabajar." },
+    {author: "Paul Graham" , content: "The most damaging thing you learned in school wasn't something you learned in any specific class. It was learning to get good grades." }
     ])
