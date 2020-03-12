@@ -124,7 +124,7 @@ function displayWorkspace(workspaceObject) {
     workspacesDeck.append(card);
 };
 
-function handleWorkspaceJSON(workspaceJSON) {
+function handleNewWorkspaceJSON(workspaceJSON) {
     
     const newWorkspaceObject = createWorkspaceObject(workspaceJSON);
     newWorkspaceObject.display();
@@ -150,7 +150,7 @@ function postWorkspace(formData) {
         })
         })
     .then(response => response.json())
-    .then(json => handleWorkspaceJSON(json))
+    .then(json => handleNewWorkspaceJSON(json))
 };
 
 function removeWorkspaceCard(deletedWorkspaceJSON) {
@@ -264,7 +264,7 @@ function deleteEvent(eventId) {
 
 function handleAllWorkspacesJSON(allWorkspacesJSON) {
     for (const workspaceData of allWorkspacesJSON) {
-        handleWorkspaceJSON(workspaceData)
+        handleNewWorkspaceJSON(workspaceData)
         
         for(const event of workspaceData["events"]) {
             handleEventJSON(event);
