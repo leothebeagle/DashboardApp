@@ -57,16 +57,10 @@ function retrieveRandomQuote() {
         })
 };
 
-// function displayWorkspace(workspaceObject) {
-//     // code to create HTML element(s) with workspaces data goes here. 
-//     const workspace = workspaceObject;
-//     console.log(workspaceObject);
-//     return workspace; 
-// };
-
 function createWorkspaceObject(workspaceJSON) {
     let newWorkspaceObject = new Workspace(workspaceJSON);
-    return newWorkspaceObject;
+    workspaceObjects.push(newWorkspaceObject);
+    return newWorkspaceObject; 
 };  
 
 function createWorkspaceCard(workspaceObject) {
@@ -126,7 +120,6 @@ function displayWorkspace(workspaceObject) {
 function handleNewWorkspaceJSON(workspaceJSON) {
     
     const newWorkspaceObject = createWorkspaceObject(workspaceJSON);
-    workspaceObjects.push(newWorkspaceObject);
     newWorkspaceObject.display();
 
     workspaceForm.reset();
@@ -189,6 +182,7 @@ function displayEvent(eventObject) {
 
 function createEventObject(eventJSON) {
     let newEventObject = new Event(eventJSON);
+    eventObjects.push(newEventObject);
     return newEventObject;
 };
 
@@ -206,36 +200,30 @@ function createEventLi(eventObject) {
     return li;
 };
 
-function handleEventJSON(eventJSON) {
-    let newEventObject = createEventObject(eventJSON);
-    eventObjects.push(newEventObject);
-    newEventObject.display();
-};
+// function postNewEvent(formData) {
+//     fetch(`http://localhost:3000/workspaces/${formData.workspace.value}/events`, {
 
-function postNewEvent(formData) {
-    fetch(`http://localhost:3000/workspaces/${formData.workspace.value}/events`, {
-
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': "application/json"
-        },
-        body: JSON.stringify({
-            // we are converting the json below into a string so it can be transported.
-            // "workspace": formData.name.value
-            // the format below is exactly what will be received in params. 
-            event: { 
-                name: formData.name.value,
-                time: formData.time.value
-            },
-            workspace: {
-                id: formData.workspace.value
-            }
-        })
-        })
-    .then(response => response.json())
-    .then(json => handleEventJSON(json))
-};
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Accept': "application/json"
+//         },
+//         body: JSON.stringify({
+//             // we are converting the json below into a string so it can be transported.
+//             // "workspace": formData.name.value
+//             // the format below is exactly what will be received in params. 
+//             event: { 
+//                 name: formData.name.value,
+//                 time: formData.time.value
+//             },
+//             workspace: {
+//                 id: formData.workspace.value
+//             }
+//         })
+//         })
+//     .then(response => response.json())
+//     .then(json => createEventObject(json))
+// };
 
 function removeEventLi(deletedEventJSON) {
     let cardToDelete = document.getElementById(`event-${deletedEventJSON["id"]}`)
@@ -262,18 +250,17 @@ function deleteEvent(eventId) {
     .then(json => removeEventLi(json));
 };
 
-function displayWorkspaces(allWorkspacesJSON) {
+function createWorkspacesAndEventsObjects(allWorkspacesJSON) {
     for (const workspaceData of allWorkspacesJSON) {
-        handleNewWorkspaceJSON(workspaceData)
+        createWorkspaceObject(workspaceData)
         
         for(const event of workspaceData["events"]) {
-            handleEventJSON(event);
+            createEventObject(event);
         }
-    
     };
 };
 
-function retrieveWorkspaces() {
+function retrieveAllWorkspacesAndEvents() {
     fetch("http://localhost:3000/workspaces", {
         method: 'GET',
         headers: {
@@ -282,7 +269,19 @@ function retrieveWorkspaces() {
         }
         })
     .then((response) => response.json())
-    .then(json => displayWorkspaces(json));
+    .then(json => createWorkspacesAndEventsObjects(json));
+};
+
+function displayAllWorkspaces() {
+    for (const workspace of workspaceObjects) {
+        workspace.display();
+    }
+}
+
+function retrieveAndDisplayWorkspaces() {
+    retrieveAllWorkspacesAndEvents();
+    displayAllWorkspaces();
+    displayAllEvents();
 };
 
 // --------------------------- EVENT LISTENERS -----------------------------------------------------------------
@@ -327,4 +326,5 @@ workspacesDeck.addEventListener("click", function() {
 // ------------------------------------------- functions to execute on page load --------------------------------
 
 retrieveRandomQuote();
+
 retrieveWorkspaces();
