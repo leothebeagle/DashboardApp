@@ -284,6 +284,10 @@ function retrieveAllWorkspaces() {
     .then(json => handleAllWorkspacesJSON(json));
 };
 
+function retrieveAndDisplayWorkspaces() {
+    
+}
+
 // --------------------------- EVENT LISTENERS -----------------------------------------------------------------
         
 quoteButton.addEventListener("click", retrieveRandomQuote);
