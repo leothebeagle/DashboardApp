@@ -326,19 +326,5 @@ workspacesDeck.addEventListener("click", function() {
 // ------------------------------------------- functions to execute on page load --------------------------------
 
 retrieveRandomQuote();
-retrieveAndDisplayWorkspaces();
 
-// useful functions for event forms can be adapted to a single event form using an argument and
-// a query selector in the function body
-
-// function hideAllEventForms {
-//     for (const form of eventForms) {
-//         form.style.display="none"   
-//     }
-// };
-
-// function displayAllEventForms {
-//     for (const form of eventForms) {
-//         form.style.display="block"   
-//     }
-// }
+retrieveWorkspaces();
