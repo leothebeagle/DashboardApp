@@ -189,6 +189,7 @@ function displayEvent(eventObject) {
 
 function createEventObject(eventJSON) {
     let newEventObject = new Event(eventJSON);
+    eventObjects.push(newEventObject);
     return newEventObject;
 };
 
