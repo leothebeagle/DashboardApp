@@ -285,7 +285,9 @@ function retrieveAllWorkspaces() {
 };
 
 function retrieveAndDisplayWorkspaces() {
-    
+    retrieveAllWorkspaces();
+    displayAllWorkspaces();
+    displayAllEvents();
 }
 
 // --------------------------- EVENT LISTENERS -----------------------------------------------------------------
