@@ -209,7 +209,6 @@ function createEventLi(eventObject) {
 function createEventObject(eventJSON) {
     let newEventObject = createEventObject(eventJSON);
     eventObjects.push(newEventObject);
-    newEventObject.display();
 };
 
 function postNewEvent(formData) {
