@@ -23,8 +23,6 @@ body, button {
 }
 
 .workspace-card {
-    display: block;
-    float: left;
     padding: 15px;
     text-align: left;
     border-style: solid;
@@ -33,6 +31,7 @@ body, button {
     margin-bottom: 50px;
 }
 
-.workspace-title-section {
-    
+.workspaces-deck {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
