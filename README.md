@@ -1,14 +1,15 @@
 # DashboardApp
 
-Welcome to DashboardApp, a Single Page Application that'll make your life more efficient and streamlined. Think of this as a single point of reference for all your productivity tools. 
+Welcome to DashboardApp, a Single Page Application that'll make your life more efficient and streamlined. Think of this as a single point of reference for all your productivity tools.
 
-Create events in your calendar, start a timer for your coding sprints, and if youre needing a little motivation, there's a quote generator for some wise words. 
+The application allows you to create workspaces, add events to them, and if you're in need of a little motivation or perspective, there's a quote generator for some wise words. 
 
-Calendar Widget:
+The front-end is built in HTML, CSS and JS and aims to implement JS object oriented concepts. 
 
-Timer:
+The back-end is built using Rails as an API, and serves JSON responses to requests made by the front-end. 
 
-Quote Generator:
+This application is a project I built for Flatiron's Online Web Developer Program and the requirements are listed below:
+
 
 1. The application must be an HTML, CSS, and JavaScript frontend with a Rails API backend. All interactions between the client and the server must be handled asynchronously (AJAX) and use JSON as the communication format.
 
