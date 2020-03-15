@@ -41,7 +41,7 @@ class Event {
     display() {
         displayEvent(this);
     }
-}
+};
 
 // ------------------------- Functions -----------------------------
 
@@ -66,6 +66,7 @@ function retrieveRandomQuote() {
 
 function createWorkspaceObject(workspaceJSON) {
     let newWorkspaceObject = new Workspace(workspaceJSON);
+    workspaceObjects.push(newWorkspaceObject);
     return newWorkspaceObject;
 };  
 
@@ -126,7 +127,6 @@ function displayWorkspace(workspaceObject) {
 function handleNewWorkspaceJSON(workspaceJSON) {
     
     const newWorkspaceObject = createWorkspaceObject(workspaceJSON);
-    workspaceObjects.push(newWorkspaceObject);
     newWorkspaceObject.display();
 
     workspaceForm.reset();
