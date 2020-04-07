@@ -4,7 +4,7 @@ Welcome to DashboardApp, a Single Page Application that'll make your life more e
 
 The application allows you to create workspaces, add events to them, and if you're in need of a little motivation or perspective, there's a quote generator for some wise words. 
 
-The front-end is built in HTML, CSS and JS and aims to implement JS object oriented concepts. 
+The front-end is built in HTML, CSS and JS and implements JS object oriented concepts. 
 
 The back-end is built using Rails as an API, and serves JSON responses to requests made by the front-end. 
 
