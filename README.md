@@ -1,6 +1,6 @@
 # DashboardApp
 
-Welcome to DashboardApp, a Single Page Application that'll make your life more efficient and streamlined. Think of this as a single point of reference for all your productivity tools.
+Welcome to DashboardApp, a Single Page Application that'll make your life more efficient and streamlined. 
 
 The application allows you to create workspaces, add events to them, and if you're in need of a little motivation or perspective, there's a quote generator for some wise words. 
 
